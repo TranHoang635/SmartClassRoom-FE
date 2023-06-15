@@ -1,0 +1,149 @@
+<title>Dashboard</title>
+
+<div class="slim-mainpanel">
+  <div class="container pd-t-30">
+    <div class="dash-headline-two">
+      <div>
+        <h4 class="tx-inverse mg-b-5" id="greeting"></h4>
+        <p class="mg-b-0" id="current-date"></p>
+
+      </div>
+    </div><!-- dash-headline-two -->
+
+    <div class="nav-statistics-wrapper">
+      <nav class="nav">
+        <a href="" class="nav-link active">Tổng quan</a>
+        <!-- <a href="" class="nav-link">Employee</a> -->
+        <!-- <a href="" class="nav-link">Products</a>
+        <a href="" class="nav-link">Misc</a> -->
+      </nav>
+      <nav class="nav">
+        <a href="" class="nav-link">Hôm nay</a>
+        <a href="" class="nav-link active">Tuần này</a>
+        <a href="" class="nav-link">Tháng này</a>
+      </nav>
+    </div><!-- nav-statistics-wrapper -->
+
+    <div class="row row-statistics mg-b-30">
+      <div class="col-md-5">
+        <h1 class="tx-inverse tx-56 tx-lato tx-bold">Thống kê</h1>
+        <p>Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem</p>
+        <p class="tx-12">
+          <!-- <a href="">View Details</a>
+          <a href="">Edit Settings</a> -->
+        </p>
+      </div><!-- col-5 -->
+      <div class="col-md-7 mg-t-20 mg-md-t-0">
+        <canvas id="myChart" style="width: 500px; height: 500px;"></canvas>
+      </div><!-- col-7 -->
+    </div><!-- row -->
+
+    <hr>
+
+    <div class="report-summary-header">
+      
+      <div>
+        <a href="" class="btn btn-secondary"><i class="icon ion-ios-clock-outline tx-22"></i> Activity Logs</a>
+        <a href="" class="btn btn-secondary"><i class="icon ion-ios-gear-outline tx-24"></i> Edit Settings</a>
+      </div>
+    </div><!-- d-flex -->
+
+    <div class="row no-gutters dashboard-chart-one">
+      <div class="col-md-4 col-lg">
+        <div class="card card-total">
+          <div>
+            <h1>420</h1>
+            <p>Tổng số lớp</p>
+          </div>
+          <div>
+            <div class="tx-24 mg-b-10 tx-center op-5">
+              <i class="icon ion-man tx-gray-600"></i>
+              <i class="icon ion-man tx-gray-600"></i>
+              <i class="icon ion-man tx-gray-600"></i>
+              <i class="icon ion-man tx-gray-600"></i>
+              <i class="icon ion-man tx-gray-600"></i>
+              <i class="icon ion-man tx-gray-600"></i>
+              <i class="icon ion-man tx-gray-400"></i>
+              <i class="icon ion-man tx-gray-400"></i>
+              <i class="icon ion-man tx-gray-400"></i>
+              <i class="icon ion-man tx-gray-400"></i>
+            </div>
+            <label>Lớp học (66%)</label>
+            <div class="progress mg-b-10">
+              <div class="progress-bar bg-primary progress-bar-xs wd-65p" role="progressbar" aria-valuenow="66"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div><!-- progress -->
+          </div>
+        </div><!-- card -->
+      </div><!-- col -->
+      <div class="col-md-4 col-lg">
+        <div class="card card-total">
+          <div>
+            <h1>55</h1>
+            <p>Tổng số môn học</p>
+          </div>
+          <div>
+            <div class="tx-16 mg-b-15 tx-center op-5">
+              <i class="icon ion-cube tx-gray-600"></i>
+              <i class="icon ion-cube tx-gray-600"></i>
+              <i class="icon ion-cube tx-gray-600"></i>
+              <i class="icon ion-cube tx-gray-600"></i>
+              <i class="icon ion-cube tx-gray-600"></i>
+              <i class="icon ion-cube tx-gray-600"></i>
+              <i class="icon ion-cube tx-gray-600"></i>
+              <i class="icon ion-cube tx-gray-600"></i>
+              <i class="icon ion-cube tx-gray-400"></i>
+              <i class="icon ion-cube tx-gray-400"></i>
+            </div>
+            <label>Đang học (85%)</label>
+            <div class="progress mg-b-10">
+              <div class="progress-bar bg-success progress-bar-xs wd-85p" role="progressbar" aria-valuenow="85"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div><!-- progress -->
+
+            <label>Đã hoàn thành (15%)</label>
+            <div class="progress">
+              <div class="progress-bar bg-warning progress-bar-xs wd-15p" role="progressbar" aria-valuenow="15"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div><!-- progress -->
+          </div>
+        </div><!-- card -->
+      </div><!-- col -->
+      <div class="col-md-4 col-lg">
+        <div class="card card-total">
+          <div>
+            <h1>30</h1>
+            <p>Tổng số người dùng</p>
+          </div>
+          <div>
+            <div class="tx-22 mg-b-10 tx-center op-5">
+              <i class="icon ion-man tx-gray-600"></i>
+              <i class="icon ion-man tx-gray-600"></i>
+              <i class="icon ion-man tx-gray-600"></i>
+              <i class="icon ion-man tx-gray-600"></i>
+              <i class="icon ion-man tx-gray-600"></i>
+              <i class="icon ion-man tx-gray-600"></i>
+              <i class="icon ion-man tx-gray-600"></i>
+              <i class="icon ion-man tx-gray-400"></i>
+              <i class="icon ion-man tx-gray-400"></i>
+              <i class="icon ion-man tx-gray-400"></i>
+            </div>
+            <label>Giảng viên (75%)</label>
+            <div class="progress mg-b-10">
+              <div class="progress-bar bg-purple progress-bar-xs wd-75p" role="progressbar" aria-valuenow="75"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div><!-- progress -->
+
+            <label>Học sinh (25%)</label>
+            <div class="progress">
+              <div class="progress-bar bg-pink progress-bar-xs wd-25p" role="progressbar" aria-valuenow="25"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div><!-- progress -->
+            
+          </div>
+        </div><!-- card -->
+      </div><!-- col -->
+    </div><!-- row -->
+    <hr>
+  </div><!-- container -->
+</div><!-- slim-mainpanel -->

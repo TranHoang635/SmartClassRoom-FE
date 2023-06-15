@@ -1,0 +1,72 @@
+
+    <form id="editmonForm"  #monHocAdd="ngForm" (ngSubmit)="onSubmit(monHocAdd.value)" >
+      <div class="form-layout">
+        <div class="row mg-b-25">
+            <div class="col-lg-5">
+                <div class="form-group">
+                <label class="form-control-label">Tên môn học: <span class="tx-danger">*</span></label>            
+                <input class="form-control" type="text" name="TenMonHoc"  placeholder="Nhập Tên Môn Học" ngModel >
+                </div>
+            </div><!-- col-4 -->
+            <div class="col-lg-3">
+                <div class="form-group">
+                <label class="form-control-label">Ngày bắt đầu: <span class="tx-danger">*</span></label>
+                <input class="form-control" type="date" name="NgayBatDau"   ngModel>
+                </div>
+            </div><!-- col-4 -->
+            <div class="col-lg-2">
+                <div class="form-group">
+                <label class="form-control-label">Số Tiết: <span class="tx-danger">*</span></label>
+                <input class="form-control" type="number" name="SoTiet"  placeholder="Nhập Số Tiết" ngModel>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="form-group mg-b-10-force">
+                    <label class="form-control-label">Chọn Lớp Học: </label>
+                    <select class="form-control select2" name="IdLopHoc" ngModel>    
+                        <ng-container *ngFor="let lh of DsLopHoc;" >               
+                            <option [value]="lh.idLopHoc" >{{lh.maLopHoc}}</option>
+                        </ng-container>                    
+                    </select>
+                </div>
+            </div><!-- col-4 -->  
+            <div class="col-lg-4">
+                <div class="form-group mg-b-10-force">
+                    <label class="form-control-label">Chọn Phòng Học: </label>
+                    <select class="form-control select2" name="IdPhongHoc" ngModel>    
+                        <ng-container *ngFor="let ph of DsPhongHoc;" >               
+                            <option [value]="ph.idPhongHoc" >{{ph.tenPhongHoc}}</option>
+                        </ng-container>                    
+                    </select>
+                </div>
+            </div><!-- col-4 -->  
+
+            <div class="col-lg-4">
+                <div class="form-group mg-b-10-force">
+                    <label class="form-control-label">Chọn Giáo Viên: </label>
+                    <select class="form-control select2" name="IdUser" ngModel>      
+                        <ng-container *ngFor="let gv of DsGiaoVien;" >               
+                            <option [value]="gv.idUser" >{{gv.hoTen}}</option>
+                        </ng-container>                    
+                    </select>
+                </div>
+            </div><!-- col-4 -->
+          <div class="col-lg-4">
+            <div class="form-group mg-b-10-force">
+                  <label class="form-control-label">Tình Trạng: </label>
+                  <select class="form-control select2" name="IdTinhTrang" ngModel>
+                      <option [value]=1 > Đang Học </option>
+                      <option [value]=2 > Hoàn Thành </option>
+                      <option [value]=3 > Tạm Ngừng </option>
+                      <option [value]=4 > Chờ Xác Nhận</option>                
+                  </select>
+            </div>
+        </div><!-- col-4 -->
+           
+        </div><!-- row -->
+        <div class="form-layout-footer" >
+          <button class="btn btn-primary bd-0" style="margin-right: 10px;" > Thêm Môn Học</button>
+          <button class="btn btn-secondary bd-0" data-dismiss="modal">Hủy</button>
+        </div><!-- form-layout-footer -->
+      </div><!-- form-layout -->
+    </form>

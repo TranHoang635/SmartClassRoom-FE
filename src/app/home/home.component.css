@@ -1,0 +1,3 @@
+.sidebar-nav-item.with-sub > .nav.sidebar-nav-sub {
+    display: none;
+  }

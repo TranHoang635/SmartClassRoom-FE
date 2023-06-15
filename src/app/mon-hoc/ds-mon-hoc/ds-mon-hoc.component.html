@@ -1,0 +1,113 @@
+<title>Môn học</title>
+
+<div class="row">
+    <div class="col-lg-2">
+        <a type="button" class="btn btn-primary active" style="float: left;" data-toggle="modal" data-target="#exampleModal" data-backdrop="static" data-keyboard="false"> 
+            <i class="icon ion-person-add"></i> | Thêm môn học
+        </a>
+    </div>
+    <div class="col-lg-10">
+        <div class="row">
+            <!-- <div class="col-lg-1">                
+                <div class="form-group mg-b-10-force">
+                    <select class="form-control select2" (change)="onTableSizeChange($event)">
+                        <option *ngFor="let size of tableSizes">{{size}}</option>
+                    </select>
+                </div>
+            </div> -->
+            <div class="col-lg-2">                
+                <div class="form-group mg-b-10-force">
+                    <select class="form-control select2" #tinhTrang (change)="locTinhTrang(tinhTrang.value)">
+                        <option label="Tình Trạng Môn Học" [value]="0"></option>
+                        <option [value]=1 > Đang Học </option>
+                        <option [value]=2 > Hoàn Thành </option>
+                        <option [value]=3 > Tạm Ngừng </option>
+                        <option [value]=4 > Chờ Xác Nhận</option>   
+                    </select>
+                </div>
+            </div> 
+            <div class="col-lg-5">                
+                <div class="form-group mg-b-10-force">
+                    <input class="form-control" type="text" name="search" [(ngModel)]="search" (ngModelChange)="Search()"
+                     placeholder="Nhập Họ Tên để tìm kiếm"/>
+                </div>
+            </div>  
+        </div> 
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"  >
+        <div class="modal-dialog" style="max-width:800px!important">
+            <div class="modal-content" style="border-radius: 6px;">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="exampleModalLabel">Thêm Môn Học</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="ngOnInit()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                
+                <div class="modal-body" >
+                    <app-add-mon-hoc [dsLopHoc]="DsLopHoc"></app-add-mon-hoc>               
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="editmon" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="max-width:800px!important">
+        <div class="modal-content" style="border-radius: 6px;">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="exampleModalLabel">Chỉnh sửa Môn Học</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="ngOnInit()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>            
+                <div class="modal-body">                       
+                    <app-edit-mon-hoc [chiTietMon]="mon" [dsLopHoc]="DsLopHoc"></app-edit-mon-hoc> <!--[dsGV]="DsGiaoVien"-->               
+                </div>
+        </div>
+        </div>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <th>TT</th>
+            <th>Tên Môn Học</th>
+            <th>Ngày Bắt Đầu</th>
+            <th>Số tiết</th>
+            <th>Phòng Học</th>
+            <th>Lớp Học</th>
+            <th>Giáo Viên</th>
+            <th>Tình Trạng</th>
+            <th>Tùy Chọn</th>        
+        </thead>
+        <tbody>
+            <tr *ngFor="let mon of DsMonHoc| paginate:{
+                itemsPerPage: tableSize,
+                currentPage: page,
+                totalItems: count
+                }; let i=index;">
+                <td>{{ i+1 }}</td>
+                <td>{{ mon.tenMonHoc}}</td>
+                <td>{{mon.ngayBatDau | date:'dd/MM/yyy'}}</td>
+                <td>{{mon.soTiet}}</td>
+                <td>{{mon.tenPhongHoc}}</td>
+                <td>{{mon.maLopHoc}}</td>
+                <td>{{mon.hoTen}}</td>
+                <td>{{mon.tenTinhTrang}}</td>
+                <td>
+                    <button  class="btn-primary btn"  href="#" routerLink="edit-mon/{{mon.idMonHoc}}" 
+                    data-toggle="modal" data-target="#editmon" data-backdrop="static" data-keyboard="false" (click)="chiTietMon(mon)"> <!----> 
+                        <i class="icon ion-edit ">  </i> Edit
+                    </button> &nbsp;&nbsp;&nbsp;
+                    <!-- <button  class="btn-danger btn" (click)="disablemon(mon.idmon, mon.hoTen)"><i class="icon ion-close"></i> Disable </button> -->
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="row"> <!-- Phân trang-->
+        <pagination-controls
+        previousLabel="Prev"
+        nextLabel="Next"
+        (pageChange)="onTableDataChange($event)"
+        >
+        </pagination-controls>
+    </div>
+</div>
+

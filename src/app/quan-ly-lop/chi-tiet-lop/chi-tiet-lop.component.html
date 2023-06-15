@@ -1,0 +1,31 @@
+
+<div class="row mg-b-25 sidebar-nav-item" style="font-size: 16px; font-weight: bold; border-bottom: 1px solid #dee2e6; padding-bottom: 6px;"> 
+    <div class="col-lg-3">
+        <a>Mã Lớp Học: <span class="tx-danger">{{buoiHoc.maLopHoc}}</span></a>
+    </div>
+    <div class="col-lg-3">
+        <a>Môn Học: <span class="tx-danger">{{buoiHoc.tenMonHoc}}</span></a>
+    </div>
+    <div class="col-lg-3">
+        <a>Phòng Học: <span class="tx-danger">{{buoiHoc.tenPhongHoc}}</span></a>
+    </div>
+    <div class="col-lg-3">
+        <a>Giáo Viên: <span class="tx-danger">{{buoiHoc.hoTen}}</span></a><br>
+    </div>
+</div>
+<div class="row" >
+    <div class="col-lg-2" style="float: left; text-align: center;" *ngFor="let user of DsContect| paginate:{
+        itemsPerPage: tableSize,
+        currentPage: page,
+        totalItems: count
+        }; let i=index;">
+        <a href="#" class="logged-user" data-toggle="dropdown" style="width: 88%; display: block;">
+            <img src="assets/img/sv2.png" alt="" style="width:80px; height:80px">
+            <!-- <span>Katherine</span>
+            <i class="fa fa-angle-down"></i> -->
+        </a>
+      <h2>{{ user.hoTen}}</h2>
+      <p><a class="btn btn-secondary" role="button">{{user.tenCanhBao}}</a></p>
+    </div><!-- /.col-lg-4 -->
+    
+  </div><!-- /.row -->

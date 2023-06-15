@@ -1,0 +1,7 @@
+.btn-primary.active {
+    transform: scale(1.0);
+}
+
+.btn-primary.active:active {
+    transform: scale(0.95);
+}

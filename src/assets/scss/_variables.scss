@@ -1,0 +1,34 @@
+
+$slim-header-height:              75px;
+$slim-navbar-height:              46px;
+$slim-sidebar-width:              230px;
+
+$slim-primary:                    #4662D4;
+
+// social color
+$facebook-color:                  #4267B2;
+$twitter-color:                   #329CC3;
+$google-color:                    #D64937;
+
+// Sass map from `_variables.scss`
+// Override this and recompile your Sass to generate different states
+$form-validation-states: map-merge(
+  (
+    "valid": (
+      "color": $form-feedback-valid-color,
+      "icon": $form-feedback-icon-valid
+    ),
+    "invalid": (
+      "color": $form-feedback-invalid-color,
+      "icon": $form-feedback-icon-invalid
+    )
+  ),
+  $form-validation-states
+);
+
+// Loop from `_forms.scss`
+// Any modifications to the above Sass map will be reflected in your compiled
+// CSS via this loop.
+@each $state, $data in $form-validation-states {
+  @include form-validation-state($state, map-get($data, color), map-get($data, icon));
+}

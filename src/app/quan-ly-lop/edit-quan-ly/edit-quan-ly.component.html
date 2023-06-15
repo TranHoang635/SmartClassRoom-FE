@@ -1,0 +1,79 @@
+<div class="section-wrapper" style="padding: 5px!important;">
+    <form id="editQLLopForm"  [formGroup]="editQLLopForm" >
+        <div class="form-layout">
+            <div class="row mg-b-25">
+                <div class="col-lg-4">
+                    <div class="form-group mg-b-10-force">
+                        <label class="form-control-label">Chọn Môn: {{buoiHoc.idMonHoc}}</label>
+                        <select class="form-control select2" formControlName="IdMonHoc" [(ngModel)]="buoiHoc.idMonHoc">    
+                            <ng-container *ngFor="let mon of DsMonHocQL;" >               
+                                <option [value]="mon.idMonHoc" [selected]="mon.idMonHoc == buoiHoc.idMonHoc">{{mon.tenMonHoc}}</option>
+                            </ng-container>                    
+                        </select>
+                    </div>
+                </div><!-- col-4 -->
+                <div class="col-lg-4">
+                    <div class="form-group mg-b-10-force">
+                        <label class="form-control-label">Chọn lớp: </label>
+                        <select class="form-control select2" formControlName="IdLopHoc" [(ngModel)]="buoiHoc.idLopHoc">  
+                            <ng-container *ngFor="let lopHoc of DsLopHocQL;" >               
+                                <option [value]="lopHoc.idLopHoc" [selected]="lopHoc.idLopHoc == buoiHoc.idLopHoc">{{lopHoc.maLopHoc}}</option>
+                            </ng-container>                    
+                        </select>
+                    </div>
+                </div><!-- col-4 -->
+                <div class="col-lg-4">
+                    <div class="form-group mg-b-10-force">
+                        <label class="form-control-label">Chọn Phòng: </label>
+                        <select class="form-control select2" formControlName="IdPhongHoc" [(ngModel)]="buoiHoc.idPhongHoc">      
+                            <ng-container *ngFor="let phong of DsPhongQL;" >               
+                                <option [value]="phong.idLopHoc" [selected]="phong.idPhongHoc == buoiHoc.idPhongHoc">{{phong.tenPhongHoc}}</option>
+                            </ng-container>                    
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group mg-b-10-force">
+                        <label class="form-control-label">Chọn Giáo Viên: </label>
+                        <select class="form-control select2" formControlName="IdUser" [(ngModel)]="buoiHoc.idUser">  
+                            <ng-container *ngFor="let gv of DsGV;">               
+                                <option [value]="gv.idUser" [selected]="gv.idUser == buoiHoc.idUser">{{gv.hoTen}}</option>
+                            </ng-container>                    
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group mg-b-10-force">
+                        <label class="form-control-label">Chọn ngày: <span class="tx-danger">*</span></label>
+                        <input type="date" class="form-control" formControlName="NgayHoc" [(ngModel)]="buoiHoc.ngayHoc" required>
+                    </div>
+                </div><!-- col-4 -->
+                <div class="col-lg-4">
+                    <div class="form-group mg-b-10-force">
+                        <label class="form-control-label">Chọn buổi học: <span class="tx-danger">*</span></label>
+                        <select class="form-control select2" formControlName="Buoi" [(ngModel)]="buoiHoc.buoi">
+                            <option [value]="'Sáng'"  [selected]="buoiHoc.buoi == 'Sáng'">Sáng</option>
+                            <option [value]="'Chiều'" [selected]="buoiHoc.buoi == 'Chiều'">Chiều</option>
+                            <option [value]="'Tối'" [selected]="buoiHoc.buoi == 'Tối'">Tối</option>            
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group mg-b-10-force">
+                        <label class="form-control-label">Tình Trạng: <span class="tx-danger">*</span></label>
+                        <select class="form-control select2" formControlName="IdTinhTrang" [(ngModel)]="buoiHoc.idTinhTrang">
+                            <option [value]=1 [selected]="buoiHoc.idTinhTrang == 1">Đang Chờ</option>
+                            <option [value]=2 [selected]="buoiHoc.idTinhTrang == 2">Đang Học</option>
+                            <option [value]=3 [selected]="buoiHoc.idTinhTrang == 3">Đã kết Thúc</option>            
+                        </select>
+                    </div>
+                </div>
+            </div><!-- row -->
+            <div class="form-layout-footer" >
+                <button class="btn btn-primary bd-0" style="margin-right: 10px;" (click)="PutData(buoiHoc.idBuoiHoc)"> Sửa Buổi Học</button>
+                <button class="btn btn-secondary bd-0" data-dismiss="modal">Hủy</button>
+            </div><!-- form-layout-footer -->
+        </div>
+    </form>
+</div><!-- section-wrapper -->
+  

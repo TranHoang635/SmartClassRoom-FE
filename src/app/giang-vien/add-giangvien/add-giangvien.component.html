@@ -1,0 +1,80 @@
+
+<div class="section-wrapper" style="padding: 5px!important;" >
+    <form id="addUserForm"  #userAdd="ngForm" (ngSubmit)="onSubmit(userAdd.value)">
+      <div class="form-layout">
+        <div class="row mg-b-25">
+          <div class="col-lg-4">
+            <div class="form-group">
+              <label class="form-control-label">Username: <span class="tx-danger">*</span></label>
+              <input class="form-control" type="text" name="UserName"  placeholder="Nhập Username" ngModel >
+            </div>
+          </div><!-- col-4 -->
+          <div class="col-lg-4">
+            <div class="form-group">
+              <label class="form-control-label">Họ Tên: <span class="tx-danger">*</span></label>
+              <input class="form-control" type="text" name="HoTen"  placeholder="Enter Họ và Tên"  ngModel>
+            </div>
+          </div><!-- col-4 -->
+          <div class="col-lg-4">
+            <div class="form-group">
+              <label class="form-control-label">Email: <span class="tx-danger">*</span></label>
+              <input class="form-control" type="text" name="Email"  placeholder="Enter email address" ngModel>
+            </div>
+          </div><!-- col-4 -->
+          <div class="col-lg-3">
+            <div class="form-group">
+              <label class="form-control-label">Điện Thoại: <span class="tx-danger">*</span></label>
+              <input class="form-control" type="text" name="Dienthoai"  placeholder="+84 " ngModel>
+            </div>
+          </div><!-- col-4 --> 
+          <div class="col-lg-9">
+              <div class="form-group mg-b-10-force">
+                <label class="form-control-label">Địa Chỉ: <span class="tx-danger">*</span></label>
+                <input class="form-control" type="text" name="DiaChi" placeholder="Enter address" ngModel>
+              </div>
+          </div><!-- col-8 -->
+
+          <div class="col-lg-4">
+              <div class="form-group mg-b-10-force">
+                  <label class="form-control-label">Loại tài khoản: <span class="tx-danger">*</span></label>
+                  <select class="form-control select2" name="IdLoai" ngModel>
+                      <option label="Chọn loại tài khoản"></option>
+                      <option value=1>Quản trị</option>
+                      <option value=2>Giáo viên</option>
+                      <option value=3>Sinh viên</option>
+                      <option value=4>Phụ huynh</option>
+                  </select>
+              </div>
+          </div><!-- col-4 -->
+          <div class="col-lg-4">
+              <div class="form-group mg-b-10-force">
+                  <label class="form-control-label">Chọn lớp: </label>
+                  <select class="form-control select2" name="IdLopHoc" ngModel>      
+                      <option value="'0'">Chọn lớp cho Học sinh</option>                       
+                      <option *ngFor="let lopHoc of DsLopHoc;" value={{lopHoc.idLopHoc}}>{{lopHoc.maLopHoc}}</option>
+                  </select>
+              </div>
+          </div><!-- col-4 -->
+          <div class="col-lg-4">
+              <div class="form-group mg-b-10-force">
+                  <label class="form-control-label">Sinh viên: <span class="tx-danger">*</span></label>
+                  <select class="form-control select2"  name="IdHocSinh" ngModel>
+                      <option  value=0>Cho Phụ Huynh</option>
+                      <ng-container *ngFor="let user of DSUser;" >
+                          <option  *ngIf="user.loaiUser==3"  value={{user.idUser}}>{{user.hoTen}}</option>
+                      </ng-container>
+                  </select>
+              </div>
+          </div><!-- col-4 -->                 
+        </div><!-- row -->
+        <div class="form-layout-footer" >
+          <button class="btn btn-primary bd-0" style="margin-right: 10px;"> Thêm Tài Khoản</button>
+          <button class="btn btn-secondary bd-0" data-dismiss="modal">Hủy</button>
+        </div><!-- form-layout-footer -->
+      </div><!-- form-layout -->
+    </form>
+  </div><!-- section-wrapper -->
+  <!-- <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-primary" >Lưu</button>  (click)="themLopHoc()"
+  </div> -->

@@ -1,0 +1,76 @@
+<div class="section-wrapper" style="padding: 5px!important;">
+    <form id="editmonForm"  [formGroup]="editMon" >
+      <div class="form-layout">
+        <div class="row mg-b-25">
+            <div class="col-lg-5">
+                <div class="form-group">
+                <label class="form-control-label">Tên môn học: <span class="tx-danger">*</span></label>            
+                <input class="form-control" type="text" formControlName="TenMonHoc"  placeholder="Nhập Tên Môn Học" [(ngModel)]="mon.tenMonHoc" >
+                </div>
+            </div><!-- col-4 -->
+            <div class="col-lg-3">
+                <div class="form-group">
+                <label class="form-control-label">Ngày bắt đầu: <span class="tx-danger">*</span></label>
+                <input class="form-control" type="date" formControlName="NgayBatDau"   [(ngModel)]="mon.ngayBatDau">
+                </div>
+            </div><!-- col-4 -->
+            <div class="col-lg-2">
+                <div class="form-group">
+                <label class="form-control-label">Số Tiết: <span class="tx-danger">*</span></label>
+                <input class="form-control" type="number" formControlName="SoTiet"  placeholder="Nhập Số Tiết" [(ngModel)]="mon.soTiet">
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="form-group mg-b-10-force">
+                    <label class="form-control-label">Chọn Lớp Học: </label>
+                    <select class="form-control select2" formControlName="IdLopHoc" [(ngModel)]="mon.idLopHoc">    
+                        <ng-container *ngFor="let lh of DsLopHoc;" >               
+                            <option [value]="lh.idLopHoc" [selected]="lh.idLopHoc == mon.idLopHoc">{{lh.maLopHoc}}</option>
+                        </ng-container>                    
+                    </select>
+                </div>
+            </div><!-- col-4 -->  
+            <div class="col-lg-4">
+                <div class="form-group mg-b-10-force">
+                    <label class="form-control-label">Chọn Phòng Học: </label>
+                    <select class="form-control select2" formControlName="IdPhongHoc" [(ngModel)]="mon.idPhongHoc">    
+                        <ng-container *ngFor="let ph of DsPhongHoc;" >               
+                            <option [value]="ph.idPhongHoc" [selected]="ph.idPhongHoc == mon.idPhongHoc">{{ph.tenPhongHoc}}</option>
+                        </ng-container>                    
+                    </select>
+                </div>
+            </div><!-- col-4 -->  
+
+            <div class="col-lg-4">
+                <div class="form-group mg-b-10-force">
+                    <label class="form-control-label">Chọn Giáo Viên: </label>
+                    <select class="form-control select2" formControlName="IdUser" [(ngModel)]="mon.idUser">      
+                        <option label="Cho Học Sinh" ></option>    
+                        <ng-container *ngFor="let gv of DsGiaoVien;" >               
+                            <option [value]="gv.idUser" [selected]="gv.idUser == mon.idUser">{{gv.hoTen}}</option>
+                        </ng-container>                    
+                    </select>
+                </div>
+            </div><!-- col-4 -->
+          <div class="col-lg-4">
+            <div class="form-group mg-b-10-force">
+                  <label class="form-control-label">Tình Trạng: </label>
+                  <select class="form-control select2" formControlName="IdTinhTrang" [(ngModel)]="mon.idTinhTrang">
+                      <option label="Chọn loại tài khoản" disabled></option>
+                      <option [value]=1 [selected]="mon.idTinhTrang == 1"> Đang Học </option>
+                      <option [value]=2 [selected]="mon.idTinhTrang == 2"> Hoàn Thành </option>
+                      <option [value]=3 [selected]="mon.idTinhTrang == 3"> Tạm Ngừng </option>
+                      <option [value]=4 [selected]="mon.idTinhTrang == 4"> Chờ Xác Nhận</option>                
+                  </select>
+            </div>
+        </div><!-- col-4 -->
+           
+        </div><!-- row -->
+        <div class="form-layout-footer" >
+          <button class="btn btn-primary bd-0" style="margin-right: 10px;" (click)="PostData(mon.idMonHoc)"> Sửa Môn Học</button>
+          <button class="btn btn-secondary bd-0" data-dismiss="modal">Hủy</button>
+        </div><!-- form-layout-footer -->
+      </div><!-- form-layout -->
+    </form>
+  </div><!-- section-wrapper -->
+  

@@ -1,0 +1,101 @@
+<title>Quản lý lớp</title>
+
+<div class="row">
+    <div class="col-lg-2">
+        <a type="button" class="btn btn-primary active" style="float: left;" data-toggle="modal" data-target="#exampleModal" data-backdrop="static" data-keyboard="false"> <!-- (click)="themClick()" -->
+            <i class="icon ion-person-add"></i> | Tạo buổi học mới
+        </a>
+    </div>
+    <div class="col-lg-10">
+        <div class="row">
+            <!-- <div class="col-lg-1">                
+                <div class="form-group mg-b-10-force">
+                    <select class="form-control select2" (change)="onTableSizeChange($event)">
+                        <option *ngFor="let size of tableSizes">{{size}}</option>
+                    </select>
+                </div>
+            </div> -->
+            <div class="col-lg-5">                
+                <div class="form-group mg-b-10-force">
+                    <input class="form-control" type="text" name="search" [(ngModel)]="search" (ngModelChange)="Search()"
+                     placeholder="Nhập tên môn học để tìm kiếm"/>
+                </div>
+            </div>  
+        </div> 
+    </div>
+    <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"  >
+        <div class="modal-dialog" style="max-width:800px!important">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="exampleModalLabel">Thêm Tài Khoản</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="ngOnInit()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                
+                <div class="modal-body" >
+                    <app-add-buoi [DSbuoi]="DSbuoi" [dsLopHoc]="DsLopHoc"></app-add-buoi>                    
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <div class="modal fade" id="editbuoi" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="max-width:800px!important">
+        <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Chỉnh sửa Buổi Học</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="ngOnInit()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>            
+                <div class="modal-body">
+                    <app-edit-quan-ly [chiTietBuoi]="buoi" ></app-edit-quan-ly>                
+                </div>
+            </div>
+        </div>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <th>TT</th>
+            <th>Môn Học</th>
+            <th>Lớp Học</th>
+            <th>Phòng Học</th>
+            <th>Giáo Viên</th>
+            <th>Ngày</th>
+            <th>Buổi</th>
+            <th>Tình Trạng</th>
+            <th>Tùy Chọn</th>        
+        </thead>
+        <tbody>
+            <tr *ngFor="let buoi of DsBuoiHoc | paginate:{
+                itemsPerPage: tableSize,
+                currentPage: page,
+                totalItems: count
+                }; let i=index;">
+                <td>{{ i+1 }}</td>
+                <td>{{buoi.tenMonHoc}}</td>
+                <td>{{ buoi.maLopHoc}}</td>
+                <td>{{buoi.tenPhongHoc}}</td>
+                <td>{{buoi.hoTen}}</td>
+                <td>{{buoi.ngayHoc | date:'dd/MM/yyy'}}</td>
+                <td>{{buoi.buoi}}</td>
+                <td>{{buoi.tenTinhTrang}}</td>
+                <td>
+                    <button  class="btn-primary btn"  href="#" (click)="chiTietBuoi(buoi)" 
+                    data-toggle="modal" data-target="#editbuoi" data-backdrop="static" data-keyboard="false">
+                        <i class="icon ion-edit ">  </i> Edit
+                    </button> &nbsp;&nbsp;&nbsp;
+                    <button  class="btn-primary btn" (click)="vaoLop(buoi.idBuoiHoc)" >
+                        <i class="icon ion-flash "> </i> Vào lớp </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="row"> <!-- Phân trang-->
+        <pagination-controls
+        previousLabel="Prev"
+        nextLabel="Next"
+        (pageChange)="onTableDataChange($event)">
+        </pagination-controls>
+    </div>
+</div>

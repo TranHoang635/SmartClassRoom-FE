@@ -1,0 +1,91 @@
+<title>Phụ huynh</title>
+
+<div class="row">
+    <div class="col-lg-10">
+        <div class="row">
+            <div class="col-lg-2">
+                <a class="btn btn-primary active" style=" color: white; font-size: 16px; background: #0062CC;" >Danh sách phụ huynh</a>
+            </div>
+            <div class="col-lg-2">
+                <div class="form-group mg-b-10-force">
+                    <a class="form-control select2">Phụ huynh</a>
+                </div>
+            </div>
+            <!-- col-3 -->
+            <div class="col-lg-5">
+                <div class="form-group mg-b-10-force">
+                    <input class="form-control" type="text" name="search" [(ngModel)]="search"
+                        (ngModelChange)="Search()" placeholder="Nhập Họ Tên để tìm kiếm" />
+                </div>
+            </div>
+            <!-- col-5    -->
+        </div>
+        <!-- row-->
+    </div>
+    <div class="modal fade" id="editUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="max-width: 800px !important">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                        Chỉnh sửa Tài Khoản
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="ngOnInit()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <app-edit-user [chiTietUser]="user" [dsUser]="DSUser" [dsLopHoc]="DsLopHoc"></app-edit-user>
+                </div>
+            </div>
+        </div>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <th>TT</th>
+            <th>Username</th>
+            <th>Họ Tên</th>
+            <th>Địa Chỉ</th>
+            <th>Email</th>
+            <th>Điện Thoại</th>
+            <th>Loại User</th>
+            <th>Mã lớp</th>
+            <th>Tùy Chọn</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="
+            let user of DSUser
+              | paginate
+                : {
+                    itemsPerPage: tableSize,
+                    currentPage: page,
+                    totalItems: count
+                  };
+            let i = index
+          ">
+                <td>{{ i + 1 }}</td>
+                <td>{{ user.userName }}</td>
+                <td>{{ user.hoTen }}</td>
+                <td>{{ user.diaChi }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.dienThoai }}</td>
+                <td>{{ user.tenLoai }}</td>
+                <td>{{ user.maLopHoc }}</td>
+                <td>
+                    <button class="btn-primary btn" href="#" (click)="chiTietUser(user)" data-toggle="modal"
+                        data-target="#editUser" data-backdrop="static" data-keyboard="false">
+                        <i class="icon ion-edit"> </i> Edit
+                    </button>
+                    &nbsp;&nbsp;&nbsp;
+                    <button class="btn-danger btn" (click)="disableUser(user.idUser, user.hoTen)">
+                        <i class="icon ion-close"></i> Disable
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="row">
+        <!-- Phân trang-->
+        <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChange($event)">
+        </pagination-controls>
+    </div>
+</div>

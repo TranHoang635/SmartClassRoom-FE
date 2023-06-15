@@ -1,0 +1,80 @@
+.submenu {
+  width: 800px;
+  padding-right: 20px;
+  padding-left: 200px;
+}
+
+.sidebar-nav-item.with-sub > .nav.sidebar-nav-sub {
+  display: none;
+}
+
+.nav-sub-link {
+  justify-content: space-between;
+}
+
+
+.toggle-wrapper {
+  display: flex;
+  align-items: center;
+  margin-left: 320px;
+}
+
+.toggle-wrapper .toggle {
+  position: relative;
+  cursor: pointer;
+  border-radius: 50px;
+  overflow: hidden;
+  height: 30px; /* thêm chiều cao */
+  width: 60px; /* thêm chiều rộng */
+  margin-left: -10px; /* thêm margin */
+}
+
+.toggle-wrapper .toggle .toggle-slide {
+  position: absolute;
+  height: 100%;
+  width: 200%;
+  left: -70%; /* Sửa lại left để toggle ban đầu là ở trạng thái off */
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.toggle-wrapper .toggle .toggle-slide .toggle-inner {
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  left: 0;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.toggle-wrapper .toggle .toggle-slide .toggle-on {
+  position: absolute;
+  top: 0;
+  left: 6px; /* Thêm khoảng cách giữa toggle và chữ On */
+  text-align: center;
+  color: #fff;
+  background-color: #23A55A;
+}
+
+.toggle-wrapper .toggle .toggle-slide .toggle-blob {
+  position: absolute;
+  top: 0;
+  right: 0px; /* Thêm khoảng cách giữa toggle và đường tròn */
+  bottom: 0;
+  left: 50%;
+  margin-left: -18px; /* Chỉnh lại để đường tròn nằm giữa toggle */
+  background-color: #fff;
+  border-radius: 50px;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.toggle-wrapper .toggle .toggle-slide .toggle-off {
+  position: absolute;
+  top: 0;
+  right: 6px; /* Thêm khoảng cách giữa toggle và chữ Off */
+  text-align: center;
+  color: #fff;
+}
+
+/* Định dạng toggle khi ở trạng thái active (on) */
+.toggle-wrapper .toggle.active .toggle-slide {
+  left: -14%;
+}

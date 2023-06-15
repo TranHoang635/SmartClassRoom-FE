@@ -1,0 +1,8 @@
+/* button trong modal */
+/* button thêm */
+.btn-primary.bd-0 {
+    transform: scale(1.0);
+}
+.btn-primary.bd-0:active {
+    transform: scale(0.95);
+}

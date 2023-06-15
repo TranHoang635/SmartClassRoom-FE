@@ -1,0 +1,148 @@
+<!-- navbar and head -->
+<div class="slim-header with-sidebar">
+  <div class="container-fluid">
+
+    <div class="slim-header-left">
+      <h3 class="slim-logo">
+        <a routerLink="/home"><img src="../assets/img/SmartClass.png"><img src="../assets/img/SmartClass2.png"></a>
+      </h3>
+      <a id="slimSidebarMenu" class="slim-sidebar-menu"><span></span></a>
+    </div><!-- slim-header-left -->
+
+    <div class="slim-header-right">
+
+      <div class="dropdown dropdown-b" data-toggle="tooltip">
+        <a href="" class="header-notification" data-toggle="dropdown">
+          <i class="icon ion-ios-bell-outline"></i>
+          <span class="indicator"></span>
+        </a>
+        <div class="dropdown-menu">
+          <div class="dropdown-menu-header">
+            <h4 class="dropdown-menu-title">Notifications</h4>
+            <div>
+              <a href="">Mark All as Read</a>
+            </div>
+          </div><!-- dropdown-menu-header -->
+          <div class="dropdown-list">
+            <!-- loop starts here -->
+            <a href="" class="dropdown-link">
+              <div class="media">
+                <img src="http://via.placeholder.com/500x500" alt="">
+                <div class="media-body">
+                  <p><strong>Suzzeth Bungaos</strong> tagged you and 18 others in a post.</p>
+                  <span>October 03, 2017 8:45am</span>
+                </div>
+              </div><!-- media -->
+            </a>
+            <!-- loop ends here -->
+            <a href="" class="dropdown-link">
+              <div class="media">
+                <img src="http://via.placeholder.com/500x500" alt="">
+                <div class="media-body">
+                  <p><strong>Mellisa Brown</strong> appreciated your work <strong>The Social Network</strong></p>
+                  <span>October 02, 2017 12:44am</span>
+                </div>
+              </div><!-- media -->
+            </a>
+            <a href="" class="dropdown-link read">
+              <div class="media">
+                <img src="http://via.placeholder.com/500x500" alt="">
+                <div class="media-body">
+                  <p>20+ new items added are for sale in your <strong>Sale Group</strong></p>
+                  <span>October 01, 2017 10:20pm</span>
+                </div>
+              </div><!-- media -->
+            </a>
+            <a href="" class="dropdown-link read">
+              <div class="media">
+                <img src="http://via.placeholder.com/500x500" alt="">
+                <div class="media-body">
+                  <p><strong>Julius Erving</strong> wants to connect with you on your conversation with <strong>Ronnie Mara</strong></p>
+                  <span>October 01, 2017 6:08pm</span>
+                </div>
+              </div><!-- media -->
+            </a>
+            <!-- <div class="dropdown-list-footer">
+              <a href="page-notifications.html"><i class="fa fa-angle-down"></i> Show All Notifications</a>
+            </div> -->
+          </div><!-- dropdown-list -->
+        </div><!-- dropdown-menu-right -->
+      </div><!-- dropdown b -->
+
+      <div class="dropdown dropdown-c">
+        <a href="#" class="logged-user" data-toggle="dropdown">
+          <img src="../assets/img/sv2.png" alt="">
+          <span>Phạm Gia Khiêm</span>
+          <i class="fa fa-angle-down"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right">
+          <nav class="nav">
+            <a [routerLinkActive]="'active'" routerLink="page-profile" class="nav-link"><i class="icon ion-person"></i>Edit Profile</a>
+            <a [routerLinkActive]="'active'" routerLink="page-activity" class="nav-link"><i class="icon ion-ios-bolt"></i>Activity Log</a>
+            <a [routerLinkActive]="'active'" routerLink="page-settings" class="nav-link"><i class="icon ion-ios-gear"></i>Settings</a>
+            <a [routerLinkActive]="'active'" routerLink="/login" class="nav-link"><i class="icon ion-forward"></i> Sign Out</a>
+          </nav>
+        </div><!-- dropdown-menu -->
+      </div><!-- dropdown c -->
+
+    </div><!-- header-right -->
+  </div><!-- container-fluid -->
+</div><!-- slim-header -->
+
+<!-- sidebar -->
+<div class="slim-body">
+  <div class="slim-sidebar">
+    <ul class="nav nav-sidebar">
+      <li class="sidebar-nav-item with-sub">
+        <a href="#" class="sidebar-nav-link" routerLink="user" [routerLinkActive]="'active'"><i class="icon ion-settings"></i>Manager User</a>
+        <ul class="nav sidebar-nav-sub">
+          <li class="nav-sub-item"><a href="#" class="nav-sub-link" routerLink="giang-vien" [routerLinkActive]="'active'">Giảng viên</a></li>
+          <li class="nav-sub-item"><a href="#" class="nav-sub-link" routerLink="sinh-vien" [routerLinkActive]="'active'">Học sinh</a></li>
+          <li class="nav-sub-item"><a href="#" class="nav-sub-link" routerLink="phu-huynh" [routerLinkActive]="'active'">Phụ huynh</a></li>
+        </ul>
+      </li>
+      <li class="sidebar-nav-item">
+        <a href="#" class="sidebar-nav-link" routerLink="lopHoc" [routerLinkActive]="'active'"><i class="icon ion-easel"></i>Lớp Học</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a href="#" class="sidebar-nav-link" routerLink="mon-hoc" [routerLinkActive]="'active'"><i class="icon ion-person-stalker"></i>Môn Học</a>
+      </li>
+      <!-- <li class="sidebar-nav-item">
+          <a href="#" class="sidebar-nav-link" routerLink="thoi-khoa-bieu" [routerLinkActive]="'active'"><i class="icon ion-ionic"></i>Thời Khóa Biểu</a>
+        </li> -->
+      <li class="sidebar-nav-item">
+        <a href="#" class="sidebar-nav-link" routerLink="quan-ly-lop" [routerLinkActive]="'active'"><i class="icon ion-compose"></i>Quản Lý Lớp</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a href="#" class="sidebar-nav-link" routerLink="tai-lieu" [routerLinkActive]="'active'" ><i class="icon ion-folder"></i>Quản lý tài liệu</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a href="#" class="sidebar-nav-link" routerLink="page-profile" [routerLinkActive]="'active'" ><i class="icon ion-ios-person"></i>Edit profile</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a href="#" class="sidebar-nav-link" routerLink="page-activity" [routerLinkActive]="'active'" ><i class="icon ion-ios-bolt"></i>Activity log</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a href="#" class="sidebar-nav-link" routerLink="page-settings" [routerLinkActive]="'active'" ><i class="icon ion-ios-gear"></i>Settings</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a href="#" class="sidebar-nav-link" routerLink="/login" [routerLinkActive]="'active'" ><i class="icon ion-forward"></i>Sign out</a>
+      </li>
+    </ul>
+  </div>
+  <!-- slim-sidebar -->
+
+  <div class="slim-mainpanel" style="background-color: #fff;">
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+    <!-- container -->
+
+    <div class="slim-footer">
+      <div class="container">
+        <p>Copyright <span id="currentYear"></span> &copy; All Rights Reserved.</p>
+        <p>Designed by: <a href="https://github.com/lils0uxz">Star Dev</a></p>
+      </div><!-- container -->
+    </div><!-- slim-footer -->
+  </div><!-- slim-mainpanel -->
+</div><!-- slim-body -->

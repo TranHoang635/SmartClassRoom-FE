@@ -1,0 +1,77 @@
+<div class="section-wrapper" style="padding: 5px!important;">
+  <form id="editUserForm"  [formGroup]="editUser" >
+    <div class="form-layout">
+      <div class="row mg-b-25">
+        <div class="col-lg-4">
+          <div class="form-group">
+            <label class="form-control-label">Username: <span class="tx-danger">*</span></label>            
+            <input class="form-control" type="text" formControlName="UserName"  placeholder="Nhập Username" [(ngModel)]="user.userName" >
+          </div>
+        </div><!-- col-4 -->
+        <div class="col-lg-4">
+          <div class="form-group">
+            <label class="form-control-label">Họ Tên: <span class="tx-danger">*</span></label>
+            <input class="form-control" type="text" formControlName="HoTen"  placeholder="Nhập  Họ và Tên" [(ngModel)]="user.hoTen">
+          </div>
+        </div><!-- col-4 -->
+        <div class="col-lg-4">
+          <div class="form-group">
+            <label class="form-control-label">Email: <span class="tx-danger">*</span></label>
+            <input class="form-control" type="email" formControlName="Email"  placeholder="Nhập  Email" [(ngModel)]="user.email">
+          </div>
+        </div><!-- col-4 -->
+        <div class="col-lg-3">
+          <div class="form-group">
+            <label class="form-control-label">Điện Thoại: <span class="tx-danger">*</span></label>
+            <input class="form-control" type="text" formControlName="Dienthoai"  placeholder="+84 " [(ngModel)]="user.dienThoai">
+          </div>
+        </div><!-- col-4 --> 
+        <div class="col-lg-9">
+            <div class="form-group mg-b-10-force">
+              <label class="form-control-label">Địa Chỉ: <span class="tx-danger">*</span></label>
+              <input class="form-control" type="text" formControlName="DiaChi" placeholder="Nhập Địa chỉ" [(ngModel)]="user.diaChi">
+            </div>
+        </div><!-- col-9 -->
+
+        <div class="col-lg-4">
+            <div class="form-group mg-b-10-force">
+                <label class="form-control-label">Loại tài khoản: <span class="tx-danger">*</span></label>
+                <select class="form-control select2" formControlName="IdLoai" [(ngModel)]="user.idLoai">
+                    <option label="Chọn loại tài khoản" disabled></option>
+                    <option [value]=1 [selected]="user.idLoai == 1">Quản trị </option>
+                    <option [value]=2 [selected]="user.idLoai == 2">Giáo viên </option>
+                    <option [value]=3 [selected]="user.idLoai == 3">Học sinh </option>
+                    <option [value]=4 [selected]="user.idLoai == 4">Phụ huynh </option>
+                  </select>
+            </div>
+        </div>
+        <!-- <div class="col-lg-4">
+            <div class="form-group mg-b-10-force">
+                <label class="form-control-label">Chọn lớp: </label>
+                <select class="form-control select2" formControlName="IdLopHoc" [(ngModel)]="user.idLopHoc">      
+                    <option label="Cho Học Sinh" ></option>    
+                    <ng-container *ngFor="let lopHoc of DsLopHoc;" >               
+                        <option [value]="lopHoc.idLopHoc" [selected]="lopHoc.idLopHoc == user.idLopHoc">{{lopHoc.maLopHoc}}</option>
+                    </ng-container>                    
+                </select>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="form-group mg-b-10-force">
+                <label class="form-control-label">Học sinh: <span class="tx-danger">*</span></label>
+                <select class="form-control select2" formControlName="IdHocSinh" [(ngModel)]="user.idHocSinh">
+                    <option label="Cho phụ huynh"></option>
+                    <ng-container *ngFor="let user of DSUser;" >
+                        <option *ngIf="user.loaiUser == 3"  [value]="user.idUser" >{{user.hoTen}}</option>
+                    </ng-container>
+                </select>
+            </div>
+        </div> -->
+      </div><!-- row -->
+      <div class="form-layout-footer" >
+        <button class="btn btn-primary bd-0" style="margin-right: 10px;" (click)="PostData(user.idUser)"> Sửa Tài Khoản</button>
+        <button class="btn btn-secondary bd-0" data-dismiss="modal">Hủy</button>
+      </div><!-- form-layout-footer -->
+    </div><!-- form-layout -->
+  </form>
+</div><!-- section-wrapper -->

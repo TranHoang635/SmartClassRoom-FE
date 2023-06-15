@@ -1,0 +1,140 @@
+<h2>Chỉnh sửa Lớp Học</h2>
+<form [formGroup]="editLopHoc">
+    <div class="row mg-b-25">    
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label class="form-control-label" for="validationTooltip01">Mã Lớp Học: <span class="tx-danger">*</span></label>
+                <input class="form-control" type="text" formControlName="MaLopHoc" [value]="lopHoc.maLopHoc" [(ngModel)]="lopHoc.maLopHoc" required>
+            </div>
+        </div><!-- col-4 -->
+        <div class="col-lg-3">
+        <div class="form-group">
+            <label class="form-control-label">Ngày Bắt Đầu: <span class="tx-danger">*</span></label><br>
+            <div class="input-group">                
+                <div class="input-group-prepend">
+                    <div class="input-group-text">                    
+                    <i class="icon ion-calendar tx-16 lh-0 op-6"></i>
+                </div>
+            </div>
+                <input type="date" class="form-control" formControlName="NgayBatDau" [(ngModel)]="lopHoc.ngayBatDau" required>
+            </div>
+        </div><!-- wd-200 -->
+        </div><!-- section-wrapper -->  
+        <div class="col-lg-2">  
+            <div class="form-group" style="padding-top: 8px;"> 
+                <label class="form-control-label"><span class="tx-danger"></span></label><br>                   
+                <button type="button"  class="btn btn-primary" (click)="saveLopHpc(lopHoc.idLopHoc)">
+                    <i class="icon ion-archive"></i> | Save 
+                </button>
+            </div>
+        </div>
+    </div><!-- row -->
+</form>
+<div >
+    <div class="row">
+        <h3 class="col-lg-10" style="color: black;">Danh Sách Sinh Viên</h3>
+        <div class="col-lg-2" ><!-- Thêm-->
+            <a type="button" style="float: right;" class="btn btn-primary active" style="float: left;" 
+                data-toggle="modal" data-target="#themSV" aria-label="Close" 
+                data-backdrop="static" data-keyboard="false" 
+                (click)="themSVClick()"
+                > <!--  -->
+                <i class="fa fa-plus"></i> | Thêm Sinh Viên vào Lớp Học
+            </a>
+        </div>
+    </div>    
+    <table class="table table-striped">
+        <thead>
+            <th>TT</th>
+            <th>Username</th>
+            <th>Họ Tên</th>
+            <th>Địa Chỉ</th>
+            <th>Email</th>
+            <th>Điện Thoại</th>
+            <th>Tùy Chọn</th>        
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of DsSinhVien| paginate:{
+                itemsPerPage: tableSize,
+                currentPage: page,
+                totalItems: count
+                }; let i=index;">
+                <td>{{ i+1 }}</td>
+                <td>{{user.userName}}</td>
+                <td>{{user.hoTen}}</td>
+                <td>{{user.diaChi}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.dienThoai}}</td>            
+                <td>
+                    <button  class="btn-danger btn" (click)="loaiKhoiDS(user.idUser , user.idLopHoc, user.hoTen)"><i class="icon ion-close"> </i> Remove </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="row"> <!-- Phân trang-->
+        <pagination-controls
+        previousLabel="Prev"
+        nextLabel="Next"
+        (pageChange)="onTableDataChange($event)"
+        >
+        </pagination-controls>
+    </div>
+</div>
+<div class="modal fade" id="themSV" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"  >
+    <div class="modal-dialog" style="max-width:1200px!important; width: 1200px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                
+                    <div class="col-lg-10">
+                        <h3 class="modal-title " id="exampleModalLabel" style="margin: 0!important;">Thêm Sinh viên vào lớp học</h3>
+                    </div>
+                    <div class="col-lg-2">                       
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="ngOnInit()">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>                                       
+            </div>                
+            <div class="modal-body" >
+                <table class="table table-striped">
+                    <thead>
+                        <th>TT</th>
+                        <th>Username</th>
+                        <th>Họ Tên</th>
+                        <th>Địa Chỉ</th>
+                        <th>Email</th>
+                        <th>Điện Thoại</th>
+                        <th>Tùy Chọn</th>        
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let u of DsChuaAdd| paginate:{
+                            itemsPerPage: tableSize2,
+                            currentPage: page,
+                            totalItems: count
+                            }; let i=index;">
+                            <td>{{ i+1 }}</td>
+                            <td>{{u.userName}}</td>
+                            <td>{{u.hoTen}}</td>
+                            <td>{{u.diaChi}}</td>
+                            <td>{{u.email}}</td>
+                            <td>{{u.dienThoai}}</td>            
+                            <td>
+                                <button  class="btn-primary btn"  (click)="addUsertoClass(u.idUser, lopHoc.idLopHoc)" >
+                                    <i class="fa fa-plus">  </i> Add
+                                </button>
+                                <!-- <button  class="btn-danger btn" (click)="loaiKhoiDS(u.idUser , u.idLopHoc)"><i class="icon ion-close"> </i> Remove </button> -->
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="row"> <!-- Phân trang-->
+                    <pagination-controls
+                    previousLabel="Prev"
+                    nextLabel="Next"
+                    (pageChange)="onTableDataChange2($event)"
+                    >
+                    </pagination-controls>
+                </div>                               
+            </div>
+        </div>
+    </div>
+</div>
