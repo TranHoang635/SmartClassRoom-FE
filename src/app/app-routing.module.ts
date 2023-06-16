@@ -3,7 +3,6 @@ import { ChildrenOutletContexts, RouterModule, Routes } from '@angular/router';
 import { UsersComponent } from './users/users.component';
 import { EditLopHocComponent } from './lopHoc/edit-lop-hoc/edit-lop-hoc.component';
 import { MonHocComponent } from './mon-hoc/mon-hoc.component';
-import { ThoiKhoaBieuComponent } from './thoi-khoa-bieu/thoi-khoa-bieu.component';
 import { QuanLyLopComponent } from './quan-ly-lop/quan-ly-lop.component';
 import { ChiTietLopComponent } from './quan-ly-lop/chi-tiet-lop/chi-tiet-lop.component';
 import { GiangVienComponent } from './giang-vien/giang-vien.component';
@@ -61,8 +60,6 @@ const routes: Routes = [
       { path: 'lopHoc/edit-lop-hoc/:id', component: EditLopHocComponent },
 
       { path: 'mon-hoc', component: MonHocComponent },
-
-      { path: 'thoi-khoa-bieu', component: ThoiKhoaBieuComponent },
 
       { path: 'quan-ly-lop', component: QuanLyLopComponent },
 

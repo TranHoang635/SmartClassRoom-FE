@@ -3,15 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-//calendar
-import { FullCalendarModule } from '@fullcalendar/angular'; // must go before plugins
-import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
-import interactionPlugin from '@fullcalendar/interaction'; // a plugin!
-
-
-
-//end calendar
-
 import { DsLopHocComponent } from './lopHoc/ds-lop-hoc/ds-lop-hoc.component';
 import { EditLopHocComponent } from './lopHoc/edit-lop-hoc/edit-lop-hoc.component';
 import { AddLopHocComponent } from './lopHoc/add-lop-hoc/add-lop-hoc.component';
@@ -33,7 +24,6 @@ import { MonHocComponent } from './mon-hoc/mon-hoc.component';
 import { DsMonHocComponent } from './mon-hoc/ds-mon-hoc/ds-mon-hoc.component';
 import { EditMonHocComponent } from './mon-hoc/edit-mon-hoc/edit-mon-hoc.component';
 import { AddMonHocComponent } from './mon-hoc/add-mon-hoc/add-mon-hoc.component';
-import { ThoiKhoaBieuComponent } from './thoi-khoa-bieu/thoi-khoa-bieu.component';
 import { ToastrModule } from 'ngx-toastr';
 import { QuanLyLopComponent } from './quan-ly-lop/quan-ly-lop.component';
 import { EditQuanLyComponent } from './quan-ly-lop/edit-quan-ly/edit-quan-ly.component';
@@ -68,11 +58,6 @@ import { DeleteLinkTailieuComponent } from './tai-lieu/delete-link-tailieu/delet
 import { DsLinkTailieuComponent } from './tai-lieu/ds-link-tailieu/ds-link-tailieu.component';
 import { EditLinkTailieuComponent } from './tai-lieu/edit-link-tailieu/edit-link-tailieu.component';
 
-// FullCalendarModule.registerPlugins([ // register FullCalendar plugins
-//   dayGridPlugin,
-//   interactionPlugin
-// ]);
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -91,7 +76,6 @@ import { EditLinkTailieuComponent } from './tai-lieu/edit-link-tailieu/edit-link
     DsMonHocComponent,
     EditMonHocComponent,
     AddMonHocComponent,
-    ThoiKhoaBieuComponent,
     QuanLyLopComponent,
     EditQuanLyComponent,
     AddQuanLyComponent,
@@ -121,7 +105,7 @@ import { EditLinkTailieuComponent } from './tai-lieu/edit-link-tailieu/edit-link
     AddLinkTailieuComponent,
     DeleteLinkTailieuComponent,
     DsLinkTailieuComponent,
-    EditLinkTailieuComponent
+    EditLinkTailieuComponent,
   ],
   imports: [
     BrowserModule,
