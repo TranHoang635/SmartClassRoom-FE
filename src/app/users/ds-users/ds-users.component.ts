@@ -106,9 +106,9 @@ export class DsUsersComponent implements OnInit {
   //! Search
 
   //Xoa Tài Khoản
-  xoaUser(id, hoten){
+  xoaUser(idUser, hoten){
     if(confirm("Delete Tài Khoản: "+ hoten +" ? ")){
-        this.service.deleteUser(id).subscribe(res=>{
+        this.service.deleteUser(idUser).subscribe(res=>{
           alert(res.toString());
         this.service.dsUsers().subscribe(data=>{
           this.DSUser=data;
