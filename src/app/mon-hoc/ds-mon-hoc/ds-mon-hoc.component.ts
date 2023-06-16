@@ -80,4 +80,15 @@ export class DsMonHocComponent implements OnInit {
     })
   }
 
+    //Xoa Tài Khoản
+    xoaMonhoc(idMonHoc, tenMonHoc){
+      if(confirm("Delete môn: "+ tenMonHoc +" ? ")){
+          this.service.deleteMonHoc(idMonHoc).subscribe(res=>{
+            alert(res.toString());
+          this.service.dsMonHoc().subscribe(data=>{
+            this.DsMonHoc=data;
+          });
+        })
+      }
+    }
 }

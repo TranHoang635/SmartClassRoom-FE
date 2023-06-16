@@ -40,8 +40,8 @@ export class SharedService {
   addLopHoc(id:number, idLop:number,val=null){
     return this.http.put<any>(this.APIUrl+'/Users/AddLop/'+id+'/'+idLop,val);
   }
-  deleteUser(id:number):Observable<any[]>{
-    return this.http.delete<any>(this.APIUrl+'/Users/'+id);
+  deleteUser(idUser:number):Observable<any[]>{
+    return this.http.delete<any>(this.APIUrl+'/Users/'+idUser);
   }
 //End-User
 //lophoc

@@ -84,7 +84,7 @@
                 totalItems: count
                 }; let i=index;">
                 <td>{{ i+1 }}</td>
-                <td>{{ mon.tenMonHoc}}</td>
+                <td>{{mon.tenMonHoc}}</td>
                 <td>{{mon.ngayBatDau | date:'dd/MM/yyy'}}</td>
                 <td>{{mon.soTiet}}</td>
                 <td>{{mon.tenPhongHoc}}</td>
@@ -96,7 +96,7 @@
                     data-toggle="modal" data-target="#editmon" data-backdrop="static" data-keyboard="false" (click)="chiTietMon(mon)"> <!----> 
                         <i class="icon ion-edit ">  </i> Edit
                     </button> &nbsp;&nbsp;&nbsp;
-                    <!-- <button  class="btn-danger btn" (click)="disablemon(mon.idmon, mon.hoTen)"><i class="icon ion-close"></i> Disable </button> -->
+                    <button  class="btn-danger btn" (click)="xoaMonhoc(mon.idMonHoc, mon.tenMonHoc)"><i class="icon ion-close"></i> Delete </button>
                 </td>
             </tr>
         </tbody>
