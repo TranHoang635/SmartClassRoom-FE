@@ -17,6 +17,7 @@ import { ForgotComponent } from './forgot/forgot.component';
 import { PageProfileComponent } from './page-profile/page-profile.component';
 import { PageActivityComponent } from './page-activity/page-activity.component';
 import { PageSettingsComponent } from './page-settings/page-settings.component';
+import { DatLaiMatKhauComponent } from './dat-lai-mat-khau/dat-lai-mat-khau.component';
 
 
 const routes: Routes = [
@@ -66,6 +67,8 @@ const routes: Routes = [
       { path: 'quan-ly-lop/chi-tiet-lop/:id', component: ChiTietLopComponent },
 
       { path: 'tai-lieu', component: TaiLieuComponent },
+
+      { path: 'dat-lai-mat-khau', component: DatLaiMatKhauComponent },
     ]
   }
 ];

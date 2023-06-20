@@ -57,6 +57,7 @@ import { AddLinkTailieuComponent } from './tai-lieu/add-link-tailieu/add-link-ta
 import { DeleteLinkTailieuComponent } from './tai-lieu/delete-link-tailieu/delete-link-tailieu.component';
 import { DsLinkTailieuComponent } from './tai-lieu/ds-link-tailieu/ds-link-tailieu.component';
 import { EditLinkTailieuComponent } from './tai-lieu/edit-link-tailieu/edit-link-tailieu.component';
+import { DatLaiMatKhauComponent } from './dat-lai-mat-khau/dat-lai-mat-khau.component';
 
 @NgModule({
   declarations: [
@@ -106,6 +107,7 @@ import { EditLinkTailieuComponent } from './tai-lieu/edit-link-tailieu/edit-link
     DeleteLinkTailieuComponent,
     DsLinkTailieuComponent,
     EditLinkTailieuComponent,
+    DatLaiMatKhauComponent,
   ],
   imports: [
     BrowserModule,
