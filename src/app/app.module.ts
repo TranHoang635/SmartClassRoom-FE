@@ -58,6 +58,7 @@ import { DeleteLinkTailieuComponent } from './tai-lieu/delete-link-tailieu/delet
 import { DsLinkTailieuComponent } from './tai-lieu/ds-link-tailieu/ds-link-tailieu.component';
 import { EditLinkTailieuComponent } from './tai-lieu/edit-link-tailieu/edit-link-tailieu.component';
 import { DatLaiMatKhauComponent } from './dat-lai-mat-khau/dat-lai-mat-khau.component';
+import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
 
 @NgModule({
   declarations: [
@@ -111,6 +112,7 @@ import { DatLaiMatKhauComponent } from './dat-lai-mat-khau/dat-lai-mat-khau.comp
   ],
   imports: [
     BrowserModule,
+    CanvasJSAngularChartsModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
