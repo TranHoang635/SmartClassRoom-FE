@@ -84,6 +84,7 @@ export class SharedService {
     return this.http.get<any>(this.APIUrl+'/PhongHoc');
   }
   // THOI KHOA BIEU
+
   // ! END
   //Notifications
   dsNotification():Observable<any[]>{
@@ -109,6 +110,13 @@ export class SharedService {
   }
   dsNhanDien(idBuoiHoc:any):Observable<any[]>{
     return this.http.get<any>(this.APIUrl+'/NhanDiens/'+idBuoiHoc)
+  }
+  addBuoiHoc(data:any){
+    return this.http.post<any>(this.APIUrl+'/QLBuoiHoc', data);
+  }
+
+  chiTietUserND(){
+    return this.http.get<any>(this.APIUrl+'/NhanDiens/ChiTiet/3/6')
   }
   
 }
