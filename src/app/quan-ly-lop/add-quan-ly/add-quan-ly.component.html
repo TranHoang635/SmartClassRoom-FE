@@ -1,1 +1,79 @@
-<p>add-quan-ly works!</p>
+<div class="section-wrapper" style="padding: 5px!important;">
+    <form id="editQLLopForm"  [formGroup]="addQLLopForm" >
+        <div class="form-layout">
+            <div class="row mg-b-25">
+                <div class="col-lg-4">
+                    <div class="form-group mg-b-10-force">
+                        <label class="form-control-label">Chọn Môn: </label>
+                        <select class="form-control select2" formControlName="IdMonHoc" >    
+                            <ng-container *ngFor="let mon of DsMonHocQL;" >               
+                                <option [value]="mon.idMonHoc">{{mon.tenMonHoc}}</option>
+                            </ng-container>                    
+                        </select>
+                    </div>
+                </div><!-- col-4 -->
+                <div class="col-lg-4">
+                    <div class="form-group mg-b-10-force">
+                        <label class="form-control-label">Chọn lớp: </label>
+                        <select class="form-control select2" formControlName="IdLopHoc" >  
+                            <ng-container *ngFor="let lopHoc of DsLopHocQL;" >               
+                                <option [value]="lopHoc.idLopHoc" >{{lopHoc.maLopHoc}}</option>
+                            </ng-container>                    
+                        </select>
+                    </div>
+                </div><!-- col-4 -->
+                <div class="col-lg-4">
+                    <div class="form-group mg-b-10-force">
+                        <label class="form-control-label">Chọn Phòng: </label>
+                        <select class="form-control select2" formControlName="IdPhongHoc" >      
+                            <ng-container *ngFor="let phong of DsPhongQL;" >               
+                                <option [value]="phong.idLopHoc" >{{phong.tenPhongHoc}}</option>
+                            </ng-container>                    
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group mg-b-10-force">
+                        <label class="form-control-label">Chọn Giáo Viên: </label>
+                        <select class="form-control select2" formControlName="IdUser" >  
+                            <ng-container *ngFor="let gv of DsGV;">               
+                                <option [value]="gv.idUser" >{{gv.hoTen}}</option>
+                            </ng-container>                    
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group mg-b-10-force">
+                        <label class="form-control-label">Chọn ngày: <span class="tx-danger">*</span></label>
+                        <input type="date" class="form-control" formControlName="NgayHoc"  required>
+                    </div>
+                </div><!-- col-4 -->
+                <div class="col-lg-4">
+                    <div class="form-group mg-b-10-force">
+                        <label class="form-control-label">Chọn buổi học: <span class="tx-danger">*</span></label>
+                        <select class="form-control select2" formControlName="Buoi" >
+                            <option [value]="'Sáng'"  >Sáng</option>
+                            <option [value]="'Chiều'" >Chiều</option>
+                            <option [value]="'Tối'" >Tối</option>            
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group mg-b-10-force">
+                        <label class="form-control-label">Tình Trạng: <span class="tx-danger">*</span></label>
+                        <select class="form-control select2" formControlName="IdTinhTrang" >
+                            <option [value]=1 >Đang Chờ</option>
+                            <option [value]=2 >Đang Học</option>
+                            <option [value]=3 >Đã kết Thúc</option>            
+                        </select>
+                    </div>
+                </div>
+            </div><!-- row -->
+            <div class="form-layout-footer" >
+                <button class="btn btn-primary bd-0" style="margin-right: 10px;" (click)="PostData()"> Thêm Buổi Học</button>
+                <button class="btn btn-secondary bd-0" data-dismiss="modal">Hủy</button>
+            </div>
+        </div>
+    </form>
+</div><!-- section-wrapper -->
+  

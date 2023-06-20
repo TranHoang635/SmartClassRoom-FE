@@ -1,3 +1,18 @@
+<div class="modal fade" id="chiTietNhanDien" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"  >
+    <div class="modal-dialog" style="max-width:800px!important">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="exampleModalLabel">Chi Tiết Tình Hình Tham Gia Học Tập</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="ngOnInit()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" >
+                <app-chi-tiet-user [chiTietUserBuoi]="strIntoObj"></app-chi-tiet-user>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="row mg-b-25 sidebar-nav-item" style="font-size: 16px; font-weight: bold; border-bottom: 1px solid #dee2e6; padding-bottom: 6px;"> 
     <div class="col-lg-3">
@@ -19,13 +34,23 @@
         currentPage: page,
         totalItems: count
         }; let i=index;">
-        <a href="#" class="logged-user" data-toggle="dropdown" style="width: 88%; display: block;">
+        <a href="#" class="logged-user" data-toggle="modal" data-target="#chiTietNhanDien"
+        data-backdrop="static" data-keyboard="false" (click)="chiTietNhanDienUser(user.nhanDien)"
+         style="width: 88%; display: block;">
             <img src="assets/img/sv2.png" alt="" style="width:80px; height:80px">
-            <!-- <span>Katherine</span>
-            <i class="fa fa-angle-down"></i> -->
         </a>
-      <h2>{{ user.hoTen}}</h2>
-      <p><a class="btn btn-secondary" role="button">{{user.tenCanhBao}}</a></p>
+      <h2>{{user.hoTen}}</h2>
+
+      <p *ngIf="user.connect == 1">
+        <a class="btn btn-primary" style="color: white;font-weight: 400;" role="button">
+            {{user.tenCanhBao}}
+        </a>
+      </p>
+      <p *ngIf="user.connect == 0">
+        <a class="btn btn-secondary"  role="button">
+            Chưa vào lớp
+        </a>
+      </p>
     </div><!-- /.col-lg-4 -->
     
   </div><!-- /.row -->

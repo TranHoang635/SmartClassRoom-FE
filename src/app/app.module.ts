@@ -29,6 +29,7 @@ import { QuanLyLopComponent } from './quan-ly-lop/quan-ly-lop.component';
 import { EditQuanLyComponent } from './quan-ly-lop/edit-quan-ly/edit-quan-ly.component';
 import { AddQuanLyComponent } from './quan-ly-lop/add-quan-ly/add-quan-ly.component';
 import { ChiTietLopComponent } from './quan-ly-lop/chi-tiet-lop/chi-tiet-lop.component';
+import { ChiTietUserComponent } from './quan-ly-lop/chi-tiet-lop/chi-tiet-user/chi-tiet-user.component';
 import { GiangVienComponent } from './giang-vien/giang-vien.component';
 import { SinhVienComponent } from './sinh-vien/sinh-vien.component';
 import { TaiLieuComponent } from './tai-lieu/tai-lieu.component';
@@ -82,6 +83,7 @@ import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
     EditQuanLyComponent,
     AddQuanLyComponent,
     ChiTietLopComponent,
+    ChiTietUserComponent,
     GiangVienComponent,
     SinhVienComponent,
     TaiLieuComponent,

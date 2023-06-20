@@ -25,8 +25,6 @@ export class QuanLyLopComponent implements OnInit {
  search:any // Search
  buoi:any=[];
 
-
-
   ngOnInit(): void {
     this.loadBuoiHoc();
   }

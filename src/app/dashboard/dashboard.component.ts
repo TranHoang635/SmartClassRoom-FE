@@ -121,9 +121,9 @@ export class DashboardComponent implements OnInit {
       }]
     }	
 
+    
     // Get the HTML element that displays the date
     var currentDateElement = document.getElementById("current-date");
-
     // Update the date every second
     setInterval(function () {
       // Get the current date and time

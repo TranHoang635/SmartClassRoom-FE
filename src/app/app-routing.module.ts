@@ -18,6 +18,7 @@ import { PageProfileComponent } from './page-profile/page-profile.component';
 import { PageActivityComponent } from './page-activity/page-activity.component';
 import { PageSettingsComponent } from './page-settings/page-settings.component';
 import { DatLaiMatKhauComponent } from './dat-lai-mat-khau/dat-lai-mat-khau.component';
+import { ChiTietUserComponent } from './quan-ly-lop/chi-tiet-lop/chi-tiet-user/chi-tiet-user.component';
 
 
 const routes: Routes = [
