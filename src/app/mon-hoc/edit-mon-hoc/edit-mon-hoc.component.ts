@@ -2,7 +2,6 @@ import { Component, OnInit, Input} from '@angular/core';
 import { SharedService } from 'src/app/shared.service';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
-import { ActivatedRoute, Route } from '@angular/router';
 
 @Component({
   selector: 'app-edit-mon-hoc',
@@ -29,8 +28,7 @@ export class EditMonHocComponent implements OnInit {
 
   constructor(
       private service:SharedService, 
-      private fb:FormBuilder,
-      private router:ActivatedRoute) { 
+      private fb:FormBuilder) { 
         this.editMon = fb.group({
           TenMonHoc: new FormControl(),
           NgayBatDau: new FormControl(),

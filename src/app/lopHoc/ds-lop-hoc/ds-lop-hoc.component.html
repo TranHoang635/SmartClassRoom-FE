@@ -30,7 +30,7 @@
             <div class="modal-content" style="border-radius: 6px;">
                 <div class="modal-header">
                         <div class="col-lg-10">
-                            <h3 class="modal-title " id="exampleModalLabel" style="margin: 0!important;">Thêm Lớp Học</h3>
+                            <h3 class="modal-title " id="exampleModalLabel" style=" font-weight: bold; margin: 0!important;">Thêm Lớp Học</h3>
                         </div>
                         <div class="col-lg-2">                       
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="ngOnInit()">
@@ -68,8 +68,7 @@
             <td>
                 <a>{{lopHoc.user.length}} : sinh viên</a></td> 
             <td>
-                <button  class="btn-primary btn" (click)="editLopHoc(lopHoc.idLopHoc)" >
-                    <i class="icon ion-edit "> </i> Edit  </button>   &nbsp;&nbsp;&nbsp;
+                <button  class="btn-primary btn" (click)="editLopHoc(lopHoc.idLopHoc)"><i class="icon ion-edit "> </i> Edit  </button>   &nbsp;&nbsp;&nbsp;
                 <button  class="btn-danger btn" (click)="deleteLopHoc(lopHoc.idLopHoc, lopHoc.maLopHoc)" ><i class="icon ion-close "> </i> Delete  </button> 
                 
             </td>
@@ -80,8 +79,7 @@
     <pagination-controls
         previousLabel="Prev"
         nextLabel="Next"
-        (pageChange)="onTableDataChange($event)"
-        >
+        (pageChange)="onTableDataChange($event)">
     </pagination-controls>
 </div>
 

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { SharedService } from 'src/app/shared.service';
 
 @Component({
   selector: 'app-add-link-tailieu',
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddLinkTailieuComponent implements OnInit {
 
-  constructor() { }
+  @Input('dsTaiLieu') 
+    DsTaiLieu:any=[];
+
+  constructor(private service:SharedService) { }
 
   ngOnInit(): void {
+    this.loadTaiLieu();
+  }
+
+  loadTaiLieu(){
+    this.service.dsTaiLieu().subscribe(dataTaiLieu =>{
+      this.DsTaiLieu=dataTaiLieu;
+    })
+  }
+
+  onSubmit(tailieu:any){
+    this.service.themMonHoc(tailieu).subscribe(result =>{
+      alert(result.toString());
+    });
   }
 
 }
