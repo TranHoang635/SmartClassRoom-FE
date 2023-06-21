@@ -4,7 +4,7 @@
     <div class="col-lg-2">
         <a type="button" class="btn btn-primary active" style="float: left;" data-toggle="modal"
             data-target="#exampleModal" data-backdrop="static" data-keyboard="false">
-            <i class="icon ion-folder"></i> | Thêm tài liệu
+            <i class="fa fa-plus"></i> | Thêm phòng học
         </a>
 
     </div>
@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-lg-5">
                 <div class="form-group mg-b-10-force">
-                    <input class="form-control" placeholder="Nhập tên tài liệu để tìm kiếm" />
+                    <input class="form-control" placeholder="Nhập tên phòng học để tìm kiếm" />
                 </div>
             </div>
         </div>
@@ -25,7 +25,7 @@
             <div class="modal-content" style="border-radius: 6px;">
                 <div class="modal-header">
                     <div class="col-lg-10">
-                        <h3 class="modal-title" id="exampleModalLabel" style="font-weight: bold;">Thêm Tài Liệu</h3>
+                        <h3 class="modal-title" id="exampleModalLabel" style="font-weight: bold;">Thêm phòng học</h3>
                     </div>
                     <div class="col-lg-2">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"
@@ -36,7 +36,7 @@
                 </div>
 
                 <div class="modal-body">
-                    <app-add-link-tailieu [dsTaiLieu]="DsTaiLieu"></app-add-link-tailieu>
+                    <app-add-phong-hoc [dsPhongHoc]="DsPhongHoc"></app-add-phong-hoc>
                 </div>
             </div>
         </div>
@@ -45,37 +45,35 @@
     <table class="table table-striped">
         <thead>
             <th>TT</th>
-            <th>Mã tài liệu</th>
-            <th>Tên tài liệu</th>
-            <th>Link tài liệu</th>
+            <th>Mã phòng học</th>
+            <th>Tên phòng học</th>
+            <th>Tình trạng</th>
             <th>Tùy chọn</th>
         </thead>
         <tbody>
-            <tr *ngFor="let tailieu of DsTaiLieu| paginate:{
+            <tr *ngFor="let phongHoc of DsPhongHoc| paginate:{
                 itemsPerPage: tableSize,
                 currentPage: page,
                 totalItems: count
                 }; let i=index;">
-                <td>{{ i+1 }}</td>
-                <td>{{tailieu.maTaiLieu}}</td>
-                <td>{{tailieu.tenTailieu}}</td>
-                <td>{{tailieu.linkTailieu}}</td>
+                <td>{{ i+1}}</td>
+                <td>{{ phongHoc.maPhongHoc}}</td>
+                <td>{{ phongHoc.tenPhongHoc}}</td>
+                <td>{{ phongHoc.tinhtrangPhongHoc}}</td>          
                 <td>
-                    <button  class="btn-primary btn"  href="#" routerLink="edit-mon/{{tailieu.idTaiLieu}}" 
-                    data-toggle="modal" data-target="#editmon" data-backdrop="static" data-keyboard="false" (click)="suaTaiLieu(tailieu)"> <!----> 
-                        <i class="icon ion-edit ">  </i> Edit
-                    </button> &nbsp;&nbsp;&nbsp;
-                    <button  class="btn-danger btn" (click)="xoaTaiLieu(tailieu.idTaiLieu)"><i class="icon ion-close"></i> Delete </button>
+                    <button  class="btn-primary btn" (click)="editPhongHoc(phongHoc.idPhongHoc)"><i class="icon ion-edit "> </i> Edit  </button>   &nbsp;&nbsp;&nbsp;
+                    <button  class="btn-danger btn" (click)="deletePhongHoc(phongHoc.idPhongHoc)" ><i class="icon ion-close "> </i> Delete  </button> 
+                    
                 </td>
             </tr>
         </tbody>
     </table>
 
     <div class="row"> <!-- Phân trang-->
-        <pagination-controls
-            previousLabel="Prev"
-            nextLabel="Next"
-            (pageChange)="onTableDataChange($event)">
+        <pagination-controls 
+        previousLabel="Prev" 
+        nextLabel="Next"
+        (pageChange)="onTableDataChange($event)">
         </pagination-controls>
     </div>
 </div>

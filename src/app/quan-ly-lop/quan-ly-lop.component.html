@@ -3,18 +3,18 @@
 <div class="row">
     <div class="col-lg-2">
         <a type="button" class="btn btn-primary active" style="float: left;" data-toggle="modal" data-target="#exampleModal" data-backdrop="static" data-keyboard="false"> <!-- (click)="themClick()" -->
-            <i class="icon ion-person-add"></i> | Tạo buổi học mới
+            <i class="fa fa-plus"></i> | Tạo buổi học mới
         </a>
     </div>
     <div class="col-lg-10">
         <div class="row">
-            <div class="col-lg-2">                
+            <!-- <div class="col-lg-2">                
                 <div class="form-group mg-b-10-force">
                     <select class="form-control select2" (change)="onTableSizeChange($event)">
                         <option *ngFor="let size of tableSizes">{{size}}</option>
                     </select>
                 </div>
-            </div>
+            </div> -->
             <div class="col-lg-5">                
                 <div class="form-group mg-b-10-force">
                     <input class="form-control" type="text" name="search" [(ngModel)]="search" (ngModelChange)="Search()"
@@ -27,7 +27,7 @@
         <div class="modal-dialog" style="max-width:800px!important">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3 class="modal-title" id="exampleModalLabel">Thêm buổi học</h3>
+                    <h3 style="font-weight: bold;" class="modal-title" id="exampleModalLabel">Thêm buổi học</h3>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="ngOnInit()">
                         <span aria-hidden="true">&times;</span>
                     </button>

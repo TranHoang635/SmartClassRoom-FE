@@ -9,6 +9,7 @@ export class SharedService {
   //readonly APIUrl = "http://localhost:5001/api";
   readonly APIUrl = "http://localhost:55907/api";
   constructor(private http:HttpClient) { }
+
 //User
   dsUsers():Observable<any[]>{
     return this.http.get<any>(this.APIUrl+'/Users');
@@ -44,6 +45,7 @@ export class SharedService {
     return this.http.delete<any>(this.APIUrl+'/Users/'+idUser);
   }
 //End-User
+
 //lophoc
   dsLopHoc():Observable<any[]>{
     return this.http.get<any>(this.APIUrl+'/LopHoc');
@@ -60,6 +62,8 @@ export class SharedService {
   delete(id:number){
     return this.http.delete<any>(this.APIUrl+'/LopHoc/'+id);
   }
+  //End-Lophoc
+
   // MonHoc
   dsMonHoc():Observable<any[]>{
     return this.http.get<any>(this.APIUrl+'/MonHoc');
@@ -79,13 +83,27 @@ export class SharedService {
   theoTinhTrang(idTinhTrang:any){
     return this.http.get<any>(this.APIUrl+'/TinhTrang/'+idTinhTrang);
   }
+  //End-MonHoc
+
   // PhongHoc
   dsPhongHoc():Observable<any[]>{
-    return this.http.get<any>(this.APIUrl+'/PhongHoc');
+    return this.http.get<any>(this.APIUrl+'/PhongHoc/');
   }
+  themPhongHoc(data:any){
+    return this.http.post<any>(this.APIUrl+'/PhongHoc/', data);
+  }
+  // editPhongHoc(data:any){
+  //   return this.http.post<any>(this.APIUrl+'/PhongHoc/', data);
+  // }
+  deletePhongHoc(id:number){
+    return this.http.delete<any>(this.APIUrl+'/PhongHoc/'+id);
+  }
+  //End-PhongHoc
+
   // THOI KHOA BIEU
 
   // ! END
+
   //Notifications
   dsNotification():Observable<any[]>{
     return this.http.get<any>(this.APIUrl+'/Notifications/notificationresult');
@@ -93,10 +111,11 @@ export class SharedService {
   delNotification(id:number){
     return this.http.delete<any>(this.APIUrl+'/Notifications/deletenotifications');
   }
-  //End Noti
+  //End-Notifications
   countNotification():Observable<any[]>{
     return this.http.get<any>(this.APIUrl+'/Notifications/UserCount');
   }
+  
 
   // QL buoi hoc
   dsBuoiHoc():Observable<any[]>{
@@ -118,5 +137,20 @@ export class SharedService {
   chiTietUserND(){
     return this.http.get<any>(this.APIUrl+'/NhanDiens/ChiTiet/3/6')
   }
-  
+  //End-QLBuoiHoc 
+
+  // TaiLieu
+  dsTaiLieu():Observable<any[]>{
+    return this.http.get<any>(this.APIUrl+'/TaiLieu/');
+  }
+  themTaiLieu(data:any){
+    return this.http.post<any>(this.APIUrl+'/TaiLieu/', data);
+  }
+  suaTaiLieu(iduser:any,val:any){
+    return this.http.put<any>(this.APIUrl+'/TaiLieu/'+iduser,val);
+  }
+  xoaTaiLieu(idUser:number):Observable<any[]>{
+    return this.http.delete<any>(this.APIUrl+'/TaiLieu/'+idUser);
+  }
+  //End-TaiLieu
 }

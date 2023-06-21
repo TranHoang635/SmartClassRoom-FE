@@ -111,12 +111,12 @@ export class DsSinhvienComponent implements OnInit {
   }
   //! Search
   //Xoa Tài Khoản
-  disableUser(id, hoten) {
-    if (confirm("Disable Tài Khoản: " + hoten + "? ")) {
-      this.service.disableUser(id).subscribe(res => {
-        alert(res.toString());
-        this.service.dsUsers().subscribe(data => {
-          this.DSUser = data;
+  xoaUser(idUser, hoten){
+    if(confirm("Delete Tài Khoản: "+ hoten +" ? ")){
+        this.service.deleteUser(idUser).subscribe(res=>{
+          alert(res.toString());
+        this.service.dsUsers().subscribe(data=>{
+          this.DSUser=data;
         });
       })
     }

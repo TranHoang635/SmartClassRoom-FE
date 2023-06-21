@@ -55,9 +55,11 @@ export class DsLopHocComponent implements OnInit {
         })
       }
     }
+
     editLopHoc(id){
       this.router.navigate(['lopHoc/edit-lop-hoc',id])
     }
+
     deleteLopHoc(id, maLop){
       if(confirm("Xóa Lớp: "+ maLop +"? ")){
           this.service.delete(id).subscribe(res=>{

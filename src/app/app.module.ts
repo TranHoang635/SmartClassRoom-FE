@@ -60,6 +60,10 @@ import { DsLinkTailieuComponent } from './tai-lieu/ds-link-tailieu/ds-link-taili
 import { EditLinkTailieuComponent } from './tai-lieu/edit-link-tailieu/edit-link-tailieu.component';
 import { DatLaiMatKhauComponent } from './dat-lai-mat-khau/dat-lai-mat-khau.component';
 import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
+import { PhongHocComponent } from './phong-hoc/phong-hoc.component';
+import { AddPhongHocComponent } from './phong-hoc/add-phong-hoc/add-phong-hoc.component';
+import { DsPhongHocComponent } from './phong-hoc/ds-phong-hoc/ds-phong-hoc.component';
+import { EditPhongHocComponent } from './phong-hoc/edit-phong-hoc/edit-phong-hoc.component';
 
 @NgModule({
   declarations: [
@@ -111,6 +115,10 @@ import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
     DsLinkTailieuComponent,
     EditLinkTailieuComponent,
     DatLaiMatKhauComponent,
+    PhongHocComponent,
+    AddPhongHocComponent,
+    DsPhongHocComponent,
+    EditPhongHocComponent,
   ],
   imports: [
     BrowserModule,

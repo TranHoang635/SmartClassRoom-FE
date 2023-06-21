@@ -2,7 +2,7 @@
 
 <div class="row">
     <div class="col-lg-2">
-        <a type="button" class="btn btn-primary active" style="float: left;" data-toggle="modal" data-target="#exampleModal" data-backdrop="static" data-keyboard="false">
+        <a type="button" class="btn btn-primary active" style=" float: left;" data-toggle="modal" data-target="#exampleModal" data-backdrop="static" data-keyboard="false">
             <i class="icon ion-person-add"></i> | Thêm người dùng
         </a>
     </div>
@@ -40,7 +40,7 @@
         <div class="modal-dialog" style="max-width:800px!important">
             <div class="modal-content" style="border-radius: 6px;">
                 <div class="modal-header">
-                    <h3 class="modal-title" id="exampleModalLabel">Thêm Tài Khoản</h3>
+                    <h3 class="modal-title" id="exampleModalLabel" style="font-weight: bold;">Thêm Tài Khoản</h3>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="ngOnInit()">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -98,9 +98,7 @@
                 <td>{{user.tenLoai}}</td>
                 <td>{{user.maLopHoc}}</td>
                 <td>
-                    <button  class="btn-primary btn"  href="#" (click)="chiTietUser(user)" 
-                    data-toggle="modal" data-target="#editUser" data-backdrop="static" data-keyboard="false">
-                        <i class="icon ion-edit ">  </i> Edit
+                    <button  class="btn-primary btn"  href="#" (click)="chiTietUser(user)" data-toggle="modal" data-target="#editUser" data-backdrop="static" data-keyboard="false"><i class="icon ion-edit "></i> Edit
                     </button> &nbsp;&nbsp;&nbsp;
                     <button  class="btn-danger btn" (click)="xoaUser(user.idUser, user.hoTen)"><i class="icon ion-close"></i> Delete </button>
                 </td>
