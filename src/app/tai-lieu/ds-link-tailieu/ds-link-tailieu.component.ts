@@ -66,8 +66,8 @@ export class DsLinkTailieuComponent implements OnInit {
   }
 
   //Xoa Tài Lieu
-  xoaTaiLieu(idTaiLieu) {
-    if (confirm("Delete Tài Khoản: " + idTaiLieu + " ? ")) {
+  xoaTaiLieu(idTaiLieu, tenTaiLieu) {
+    if (confirm("Xóa Tài Liệu: " + tenTaiLieu + " ? ")) {
       this.service.deleteUser(idTaiLieu).subscribe(res => {
         alert(res.toString());
         this.service.dsUsers().subscribe(data => {

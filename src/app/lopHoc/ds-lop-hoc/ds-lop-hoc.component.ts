@@ -37,13 +37,13 @@ export class DsLopHocComponent implements OnInit {
     // Phân trang
     onTableDataChange (event: any){
       this.page = event;
-      this.DsLopHoc();
+      this.reloadDsLopHoc();
       console.log(this.page);
     }
     onTableSizeChange(event:any):void{
       this.tableSize = event.target.value;
       this.page = 1;
-      this.DsLopHoc();
+      this.reloadDsLopHoc();
     }
     
     Search(){
@@ -55,11 +55,9 @@ export class DsLopHocComponent implements OnInit {
         })
       }
     }
-
-    editLopHoc(id){
+    editLopHoc(id: number){
       this.router.navigate(['lopHoc/edit-lop-hoc',id])
     }
-
     deleteLopHoc(id, maLop){
       if(confirm("Xóa Lớp: "+ maLop +"? ")){
           this.service.delete(id).subscribe(res=>{

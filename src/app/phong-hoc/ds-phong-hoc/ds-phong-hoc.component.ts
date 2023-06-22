@@ -12,6 +12,7 @@ export class DsPhongHocComponent implements OnInit {
   constructor(private service: SharedService, private router: Router) { }
 
   DsPhongHoc: any = [];
+  phonghoc: any = [];
 
   // phan trang
   title = 'phantrang';
@@ -54,18 +55,24 @@ export class DsPhongHocComponent implements OnInit {
       })
     }
   }
+  locTinhTrang(value:any){ 
+    console.log(value);   
+    this.service.theoTinhTrang(value).subscribe(data=>{
+      this.DsPhongHoc=data;
+    })
+  }
 
   
 
-  editPhongHoc(idPhongHoc){
-    this.router.navigate(['phong-hoc/edit-phong-hoc',idPhongHoc])
+  editPhongHoc(phonghoc: any){
+    this.phonghoc = phonghoc;
   }
 
-  deletePhongHoc(id){
-    if(confirm("Xóa Phòng: "+ id +"? ")){
+  deletePhongHoc(id, tenPhongHoc){
+    if(confirm("Xóa Phòng: "+ tenPhongHoc +"? ")){
         this.service.delete(id).subscribe(res=>{
           alert(res.toString());
-        this.service.dsLopHoc().subscribe(data=>{
+        this.service.dsPhongHoc().subscribe(data=>{
           this.DsPhongHoc=data;
         });
       })

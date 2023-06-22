@@ -141,10 +141,10 @@ export class SharedService {
 
   // TaiLieu
   dsTaiLieu():Observable<any[]>{
-    return this.http.get<any>(this.APIUrl+'/TaiLieu/');
+    return this.http.get<any>(this.APIUrl+'/TaiLieu');
   }
   themTaiLieu(data:any){
-    return this.http.post<any>(this.APIUrl+'/TaiLieu/', data);
+    return this.http.post<any>(this.APIUrl+'/TaiLieu', data);
   }
   suaTaiLieu(iduser:any,val:any){
     return this.http.put<any>(this.APIUrl+'/TaiLieu/'+iduser,val);

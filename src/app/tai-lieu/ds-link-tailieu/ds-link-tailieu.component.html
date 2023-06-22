@@ -45,9 +45,10 @@
     <table class="table table-striped">
         <thead>
             <th>TT</th>
-            <th>Mã tài liệu</th>
             <th>Tên tài liệu</th>
-            <th>Link tài liệu</th>
+            <th>Url tài liệu</th>
+            <th>Môn học</th>
+            <th>User</th>
             <th>Tùy chọn</th>
         </thead>
         <tbody>
@@ -57,15 +58,16 @@
                 totalItems: count
                 }; let i=index;">
                 <td>{{ i+1 }}</td>
-                <td>{{tailieu.maTaiLieu}}</td>
-                <td>{{tailieu.tenTailieu}}</td>
-                <td>{{tailieu.linkTailieu}}</td>
+                <td>{{tailieu.tenTaiLieu}}</td>
+                <td>{{tailieu.urlTailieu}}</td>
+                <td>{{tailieu.monHoc}}</td>
+                <td>{{tailieu.user}}</td>
                 <td>
                     <button  class="btn-primary btn"  href="#" routerLink="edit-mon/{{tailieu.idTaiLieu}}" 
                     data-toggle="modal" data-target="#editmon" data-backdrop="static" data-keyboard="false" (click)="suaTaiLieu(tailieu)"> <!----> 
                         <i class="icon ion-edit ">  </i> Edit
                     </button> &nbsp;&nbsp;&nbsp;
-                    <button  class="btn-danger btn" (click)="xoaTaiLieu(tailieu.idTaiLieu)"><i class="icon ion-close"></i> Delete </button>
+                    <button  class="btn-danger btn" (click)="xoaTaiLieu(tailieu.idTaiLieu, tailieu.tenTaiLieu)"><i class="icon ion-close"></i> Delete </button>
                 </td>
             </tr>
         </tbody>

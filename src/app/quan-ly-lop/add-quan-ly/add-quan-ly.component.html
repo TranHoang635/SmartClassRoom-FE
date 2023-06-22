@@ -27,7 +27,7 @@
                         <label class="form-control-label">Chọn Phòng: </label>
                         <select class="form-control select2" formControlName="IdPhongHoc" >      
                             <ng-container *ngFor="let phong of DsPhongQL;" >               
-                                <option [value]="phong.idLopHoc" >{{phong.tenPhongHoc}}</option>
+                                <option [value]="phong.idPhongHoc" >{{phong.tenPhongHoc}}</option>
                             </ng-container>                    
                         </select>
                     </div>
