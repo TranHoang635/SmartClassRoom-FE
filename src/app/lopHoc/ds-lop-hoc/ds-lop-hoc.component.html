@@ -39,12 +39,12 @@
                         </div>                                       
                 </div>                
                 <div class="modal-body">
-                    <app-add-lop-hoc ></app-add-lop-hoc>
+                    <app-add-lop-hoc></app-add-lop-hoc>
                     <!--[DSUser]="DSUser" [dsLopHoc]="DsLopHoc"-->               
                 </div>
             </div>
         </div>
-    </div>    
+    </div>
 </div>
 <table class="table table-striped">
     <thead>
@@ -65,12 +65,14 @@
             <td>{{ lopHoc.maLopHoc}}</td>
             <td>{{ lopHoc.ngayTao | date:'dd/MM/yyy'}}</td> 
             <td>{{ lopHoc.ngayBatDau | date:'dd/MM/yyy'}}</td>             
+            <td><a>{{lopHoc.user.length}} : sinh viên</a></td>
             <td>
-                <a>{{lopHoc.user.length}} : sinh viên</a></td> 
-            <td>
-                <button  class="btn-primary btn" (click)="editLopHoc(lopHoc.idLopHoc)"><i class="icon ion-edit "> </i> Edit  </button>   &nbsp;&nbsp;&nbsp;
-                <button  class="btn-danger btn" (click)="deleteLopHoc(lopHoc.idLopHoc, lopHoc.maLopHoc)" ><i class="icon ion-close "> </i> Delete  </button> 
-                
+                <button class="btn-primary btn" (click)="editLopHoc(lopHoc.idLopHoc)">
+                    <i class="icon ion-edit"></i> Edit
+                  </button> &nbsp;&nbsp;&nbsp;
+                  <button class="btn-danger btn" (click)="deleteLopHoc(lopHoc.idLopHoc, lopHoc.maLopHoc)">
+                    <i class="icon ion-close "></i> Delete
+                  </button>                   
             </td>
         </tr>
     </tbody>

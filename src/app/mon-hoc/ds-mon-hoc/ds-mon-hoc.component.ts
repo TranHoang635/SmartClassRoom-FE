@@ -25,7 +25,6 @@ export class DsMonHocComponent implements OnInit {
       page:number = 1;
       count:number = 0;
       tableSize: number = 10;
-      tableSizes: any = [10,15,20,25,30];
      //!-- End Phan Trang
 
 
