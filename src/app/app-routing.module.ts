@@ -1,7 +1,7 @@
 import { Component, NgModule } from '@angular/core';
 import { ChildrenOutletContexts, RouterModule, Routes } from '@angular/router';
 import { UsersComponent } from './users/users.component';
-import { EditLopHocComponent } from './lopHoc/edit-lop-hoc/edit-lop-hoc.component';
+import { EditLopHocComponent } from './lop-hoc/edit-lop-hoc/edit-lop-hoc.component';
 import { MonHocComponent } from './mon-hoc/mon-hoc.component';
 import { QuanLyLopComponent } from './quan-ly-lop/quan-ly-lop.component';
 import { ChiTietLopComponent } from './quan-ly-lop/chi-tiet-lop/chi-tiet-lop.component';
@@ -24,31 +24,28 @@ import { PhongHocComponent } from './phong-hoc/phong-hoc.component';
 
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: 'login',
-    pathMatch: 'full'
+    path: '', redirectTo: 'login',  pathMatch: 'full' //lớp cha ngoài cùng 1
   },
+  
   {
-    path: 'login',
-    component: LoginComponent
+    path: 'login', component: LoginComponent
   },
 
   { 
-    path: 'forgot', 
-    component: ForgotComponent
+    path: 'forgot', component: ForgotComponent //lớp cha ngoài cùng 2
   },
 
   {
-    path: 'home',
-    component: HomeComponent,
-    children: [
+    path: 'home', 
+    component: HomeComponent, //lớp cha ngoài cùng 3
+    children: [ // lớp con bên trong lớp cha 3 (single page: sidebar, navbar giữ nguyên vị trí khi di chuyển những lớp con bên trong)
       { path: 'page-profile', component: PageProfileComponent },
 
       { path: 'page-activity', component: PageActivityComponent },
 
       { path: 'page-settings', component: PageSettingsComponent },
 
-      { path: 'dashboard', component: DashboardComponent },
+      { path: '', component: DashboardComponent },
 
       { path: 'user', component: UsersComponent },
 
@@ -58,9 +55,9 @@ const routes: Routes = [
 
       { path: 'phu-huynh', component: PhuHuynhComponent },
 
-      { path: 'lopHoc', component: LopHocComponent },
+      { path: 'lop-hoc', component: LopHocComponent },
 
-      { path: 'lopHoc/edit-lop-hoc/:id', component: EditLopHocComponent },
+      { path: 'lop-hoc/edit-lop-hoc/:id', component: EditLopHocComponent },
 
       { path: 'mon-hoc', component: MonHocComponent },
 

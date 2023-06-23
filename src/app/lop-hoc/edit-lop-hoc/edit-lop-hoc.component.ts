@@ -68,6 +68,7 @@ export class EditLopHocComponent implements OnInit {
     this.DsSinhVien();
   }
   // !phan trang
+  
    // phan trang 2
    onTableDataChange2 (event: any){
     this.page = event;
@@ -115,4 +116,5 @@ export class EditLopHocComponent implements OnInit {
 
     })
   }
+
 }
