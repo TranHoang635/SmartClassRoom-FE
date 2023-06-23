@@ -28,16 +28,16 @@ const routes: Routes = [
   },
   
   {
-    path: 'login', component: LoginComponent
+    path: 'login', component: LoginComponent  //lớp cha ngoài cùng 2
   },
 
   { 
-    path: 'forgot', component: ForgotComponent //lớp cha ngoài cùng 2
+    path: 'forgot', component: ForgotComponent //lớp cha ngoài cùng 3
   },
 
   {
     path: 'home', 
-    component: HomeComponent, //lớp cha ngoài cùng 3
+    component: HomeComponent, 
     children: [ // lớp con bên trong lớp cha 3 (single page: sidebar, navbar giữ nguyên vị trí khi di chuyển những lớp con bên trong)
       { path: 'page-profile', component: PageProfileComponent },
 
@@ -55,7 +55,7 @@ const routes: Routes = [
 
       { path: 'phu-huynh', component: PhuHuynhComponent },
 
-      { path: 'lop-hoc', component: LopHocComponent },
+      { path: 'lop-hoc', component: LopHocComponent, },
 
       { path: 'lop-hoc/edit-lop-hoc/:id', component: EditLopHocComponent },
 
