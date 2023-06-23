@@ -9,7 +9,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class DsLopHocComponent implements OnInit {
 
-  constructor(private service:SharedService,private activatedRoute: ActivatedRoute, private router:Router) { }
+  constructor (
+    private router:Router,
+    private service:SharedService,
+    private activatedRoute: ActivatedRoute ) { }
 
   DsLopHoc:any=[];
 
@@ -60,11 +63,10 @@ export class DsLopHocComponent implements OnInit {
     }
 
     editLopHoc(id){
-      alert(['Chuyển tới link có id' , id]);
-      this.router.navigate(['/lop-hoc/edit-lop-hoc',id])
+      this.router.navigateByUrl("home/lop-hoc/edit-lop-hoc/"+id);
     }
     deleteLopHoc(id, maLop){
-      if(confirm("Xóa Lớp: "+ maLop +"? ")){
+      if(confirm("Xóa Lớp: "+ maLop +" ? ")){
           this.service.delete(id).subscribe(res=>{
             alert(res.toString());
           this.service.dsLopHoc().subscribe(data=>{
