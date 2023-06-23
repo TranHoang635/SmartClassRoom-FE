@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/shared.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-ds-lop-hoc',
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class DsLopHocComponent implements OnInit {
 
-  constructor(private service:SharedService, private router:Router) { }
+  constructor(private service:SharedService,private activatedRoute: ActivatedRoute, private router:Router) { }
 
   DsLopHoc:any=[];
 
@@ -19,7 +19,6 @@ export class DsLopHocComponent implements OnInit {
     page:number = 1;
     count:number = 0;
     tableSize: number = 10;
-    tableSizes: any = [10,15,20,25,30];
    //!-- End Phan Trang
 
    //search
@@ -28,6 +27,10 @@ export class DsLopHocComponent implements OnInit {
 
     ngOnInit(): void {
       this.reloadDsLopHoc();
+      this.activatedRoute.queryParams.subscribe(params => {
+        const id = params['id'];
+        console.log(id);
+      });
     }
     reloadDsLopHoc(){
       this.service.dsLopHoc().subscribe(data=>{
@@ -55,8 +58,10 @@ export class DsLopHocComponent implements OnInit {
         })
       }
     }
-    editLopHoc(id: number){
-      this.router.navigate(['lopHoc/edit-lop-hoc',id])
+
+    editLopHoc(id){
+      alert(['Chuyển tới link có id' , id]);
+      this.router.navigate(['/lop-hoc/edit-lop-hoc',id])
     }
     deleteLopHoc(id, maLop){
       if(confirm("Xóa Lớp: "+ maLop +"? ")){
@@ -68,4 +73,5 @@ export class DsLopHocComponent implements OnInit {
         })
       }
     }
+
 }

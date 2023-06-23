@@ -1,0 +1,86 @@
+<title>Lớp học</title>
+
+<div class="row">
+    <div class="col-lg-2">
+        <a type="button" class="btn btn-primary active" style="float: left;" data-toggle="modal"
+            data-target="#exampleModal" data-backdrop="static" data-keyboard="false"> <!-- (click)="themClick()" -->
+            <i class="fa fa-plus"></i> | Thêm lớp học
+        </a>
+    </div>
+    <!-- <div class="col-lg-1">                
+        <div class="form-group mg-b-10-force">
+            <select class="form-control select2" (change)="onTableSizeChange($event)">
+                <option *ngFor="let size of tableSizes">{{size}}</option>
+            </select>
+        </div>
+    </div> -->
+    <div class="col-lg-9">
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="form-group mg-b-10-force">
+                    <input class="form-control" type="text" name="search" placeholder="Nhập mã lớp học để tìm kiếm"
+                        [(ngModel)]="search" (ngModelChange)="Search()" /> <!---->
+                </div>
+            </div> <!-- col-5    -->
+        </div> <!-- row-->
+    </div>
+</div><!-- row-->
+<div><!-- Thêm-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="width:500px!important">
+            <div class="modal-content" style="border-radius: 6px;">
+                <div class="modal-header">
+                    <div class="col-lg-10">
+                        <h3 class="modal-title " id="exampleModalLabel"
+                            style=" font-weight: bold; margin: 0!important;">Thêm Lớp Học</h3>
+                    </div>
+                    <div class="col-lg-2">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                            (click)="ngOnInit()">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <app-add-lop-hoc></app-add-lop-hoc>
+                    <!--[DSUser]="DSUser" [dsLopHoc]="DsLopHoc"-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<table class="table table-striped">
+    <thead>
+        <th>TT</th>
+        <th>Mã Lớp Học</th>
+        <th>Ngày Khởi Tạo</th>
+        <th>Ngày Bắt Đầu</th>
+        <th>Số sinh viên</th>
+        <th>Tùy Chọn</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let lopHoc of DsLopHoc| paginate:{
+            itemsPerPage: tableSize,
+            currentPage: page,
+            totalItems: count
+            }; let i=index;">
+            <td>{{ i+1}}</td>
+            <td>{{ lopHoc.maLopHoc}}</td>
+            <td>{{ lopHoc.ngayTao | date:'dd/MM/yyy'}}</td>
+            <td>{{ lopHoc.ngayBatDau | date:'dd/MM/yyy'}}</td>
+            <td><a>{{lopHoc.user.length}} : sinh viên</a></td>
+            <td>
+                <button class="btn-primary btn" (click)="editLopHoc(lopHoc.idLopHoc)">
+                    <i class="icon ion-edit"></i> Edit
+                </button> &nbsp;&nbsp;&nbsp;
+                <button class="btn-danger btn" (click)="deleteLopHoc(lopHoc.idLopHoc, lopHoc.maLopHoc)">
+                    <i class="icon ion-close "></i> Delete
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div class="row"> <!-- Phân trang-->
+    <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChange($event)">
+    </pagination-controls>
+</div>

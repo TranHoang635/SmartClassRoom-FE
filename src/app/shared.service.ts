@@ -87,10 +87,10 @@ export class SharedService {
 
   // PhongHoc
   dsPhongHoc():Observable<any[]>{
-    return this.http.get<any>(this.APIUrl+'/PhongHoc/');
+    return this.http.get<any>(this.APIUrl+'/PhongHoc');
   }
   themPhongHoc(data:any){
-    return this.http.post<any>(this.APIUrl+'/PhongHoc/', data);
+    return this.http.post<any>(this.APIUrl+'/PhongHoc', data);
   }
   // editPhongHoc(data:any){
   //   return this.http.post<any>(this.APIUrl+'/PhongHoc/', data);
