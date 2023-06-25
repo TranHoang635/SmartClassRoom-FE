@@ -45,7 +45,7 @@ const routes: Routes = [
 
       { path: 'page-settings', component: PageSettingsComponent },
 
-      { path: '', component: DashboardComponent },
+      { path: 'dashboard', component: DashboardComponent },
 
       { path: 'user', component: UsersComponent },
 

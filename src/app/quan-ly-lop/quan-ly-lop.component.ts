@@ -61,7 +61,7 @@ export class QuanLyLopComponent implements OnInit {
   }    
   vaoLop(id){
     console.log(id)
-    this.router.navigate(['quan-ly-lop/chi-tiet-lop',id])
+    this.router.navigate(['home/quan-ly-lop/chi-tiet-lop/'+id])
   }
   //! Search
 }

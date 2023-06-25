@@ -34,7 +34,6 @@
                         </button>
                     </div>
                 </div>
-
                 <div class="modal-body">
                     <app-add-phong-hoc [dsPhongHoc]="DsPhongHoc"></app-add-phong-hoc>
                 </div>
@@ -57,9 +56,9 @@
                 totalItems: count
                 }; let i=index;">
                 <td>{{ i+1}}</td>
-                <td>{{ phongHoc.maPhongHoc}}</td>
-                <td>{{ phongHoc.tenPhongHoc}}</td>
-                <td>{{ phongHoc.tinhtrangPhongHoc}}</td>          
+                <td>{{ phongHoc.maPhongHoc }}</td>
+                <td>{{ phongHoc.tenPhongHoc }}</td>
+                <td>{{ phongHoc.tinhtrangPhongHoc }}</td>          
                 <td>
                     <button  class="btn-primary btn" (click)="editPhongHoc(phongHoc)"><i class="icon ion-edit "> </i> Edit  </button>   &nbsp;&nbsp;&nbsp;
                     <button  class="btn-danger btn" (click)="deletePhongHoc(phongHoc.idPhongHoc, phongHoc.tenPhongHoc)" ><i class="icon ion-close "> </i> Delete  </button> 
