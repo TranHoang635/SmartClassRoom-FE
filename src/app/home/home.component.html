@@ -4,7 +4,7 @@
 
     <div class="slim-header-left">
       <h3 class="slim-logo">
-        <a routerLink="/home"><img src="../assets/img/SmartClass.png"><img src="../assets/img/SmartClass2.png"></a>
+        <a routerLink="/home/dashboard"><img src="../assets/img/SmartClass.png"><img src="../assets/img/SmartClass2.png"></a>
       </h3>
       <a id="slimSidebarMenu" class="slim-sidebar-menu"><span></span></a>
     </div><!-- slim-header-left -->
@@ -80,6 +80,7 @@
             <a [routerLinkActive]="'active'" routerLink="page-profile" class="nav-link"><i class="icon ion-person"></i>Chỉnh sửa</a>
             <a [routerLinkActive]="'active'" routerLink="page-activity" class="nav-link"><i class="icon ion-document-text"></i>Nhật ký</a>
             <a [routerLinkActive]="'active'" routerLink="page-settings" class="nav-link"><i class="icon ion-ios-gear"></i>Cài đặt</a>
+            <a [routerLinkActive]="'active'" routerLink="dat-lai-mat-khau" class="nav-link"><i class="icon ion-compose"></i>Đổi mật khẩu</a>
             <a [routerLinkActive]="'active'" routerLink="/login" class="nav-link"><i class="icon ion-forward"></i>Đăng xuất</a>
           </nav>
         </div><!-- dropdown-menu -->
@@ -94,7 +95,7 @@
   <div class="slim-sidebar">
     <ul class="nav nav-sidebar">
       <li class="sidebar-nav-item">
-        <a href="#" class="sidebar-nav-link" routerLink="dashboard"><i class="icon ion-home"></i>Dashboard</a>
+        <a href="#" class="sidebar-nav-link" routerLink="dashboard" [routerLinkActive]="'active'"><i class="icon ion-home"></i>Dashboard</a>
       </li>
       <li class="sidebar-nav-item with-sub">
         <a href="#" class="sidebar-nav-link" routerLink="user" [routerLinkActive]="'active'"><i class="icon ion-settings"></i>Quản lý người dùng</a>
