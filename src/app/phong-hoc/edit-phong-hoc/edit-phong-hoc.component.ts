@@ -12,11 +12,14 @@ export class EditPhongHocComponent implements OnInit {
   phongHoc:any=[];
   @Input('dsPhongHoc')
   DsPhongHoc:any=[];
+  @Input('chiTietPhongHoc')
+  phonghoc:any=[];
 
   val:any;
   editPhongHoc: FormGroup;
     MaPhongHoc: string ="";
     TenPhongHoc: string ="";
+    MoTa: string ="";
     IdTinhTrang: number;
 
   constructor(
@@ -25,6 +28,7 @@ export class EditPhongHocComponent implements OnInit {
       this.editPhongHoc = fb.group({
         MaPhongHoc: new FormControl(),
         TenPhongHoc: new FormControl(),
+        MoTa: new FormControl(),
         IdTinhTrang: new FormControl(),
       })
      }
@@ -36,14 +40,14 @@ export class EditPhongHocComponent implements OnInit {
   PostData(idPhongHoc){    
     this.val = this.editPhongHoc.value;
     console.log(this.val);
-    this.service.suaMonHoc(idPhongHoc,this.val).subscribe(data=>{
+    this.service.suaPhongHoc(idPhongHoc,this.val).subscribe(data=>{
       alert(data.toString());
     })
   }
 
   loadPhong(){
-    this.service.dsPhongHoc().subscribe(dataPh =>{
-      this.DsPhongHoc=dataPh;
+    this.service.dsPhongHoc().subscribe(data =>{
+      this.DsPhongHoc=data;
     })
   }
 }

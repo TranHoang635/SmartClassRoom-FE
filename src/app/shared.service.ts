@@ -59,43 +59,46 @@ export class SharedService {
   chiTietLopHoc(idLopHoc:any){
     return this.http.get<any>(this.APIUrl+'/LopHoc/'+idLopHoc);
   }
-  delete(id:number){
+  xoaLopHoc(id:number){
     return this.http.delete<any>(this.APIUrl+'/LopHoc/'+id);
   }
   //End-Lophoc
 
   // MonHoc
-  dsMonHoc():Observable<any[]>{
-    return this.http.get<any>(this.APIUrl+'/MonHoc');
-  }
-  themMonHoc(data:any){
-    return this.http.post<any>(this.APIUrl+'/MonHoc', data);
-  }
-  suaMonHoc(idMonHoc:any,val:any){
-    return this.http.put<any>(this.APIUrl+'/MonHoc/'+idMonHoc,val);
-  }
-  chiTietMonHoc(idMonHoc:any){
-    return this.http.get<any>(this.APIUrl+'/MonHoc/'+idMonHoc);
-  }
-  deleteMonHoc(id:number){
-    return this.http.delete<any>(this.APIUrl+'/MonHoc/'+id);
-  }
-  theoTinhTrang(idTinhTrang:any){
-    return this.http.get<any>(this.APIUrl+'/TinhTrang/'+idTinhTrang);
-  }
+    dsMonHoc():Observable<any[]>{
+      return this.http.get<any>(this.APIUrl+'/MonHoc');
+    }
+    themMonHoc(data:any){
+      return this.http.post<any>(this.APIUrl+'/MonHoc', data);
+    }
+    suaMonHoc(idMonHoc:any,val:any){
+      return this.http.put<any>(this.APIUrl+'/MonHoc/'+idMonHoc,val);
+    }
+    chiTietMonHoc(idMonHoc:any){
+      return this.http.get<any>(this.APIUrl+'/MonHoc/'+idMonHoc);
+    }
+    deleteMonHoc(id:number){
+      return this.http.delete<any>(this.APIUrl+'/MonHoc/'+id);
+    }
+    theoTinhTrang(idTinhTrang:any){
+      return this.http.get<any>(this.APIUrl+'/TinhTrang/'+idTinhTrang);
+    }
   //End-MonHoc
 
   // PhongHoc
   dsPhongHoc():Observable<any[]>{
     return this.http.get<any>(this.APIUrl+'/PhongHoc');
   }
+  chiTietPhongHoc(idPhongHoc:any){
+    return this.http.get<any>(this.APIUrl+'/PhongHoc/'+idPhongHoc);
+  }
   themPhongHoc(data:any){
     return this.http.post<any>(this.APIUrl+'/PhongHoc', data);
   }
-  // editPhongHoc(data:any){
-  //   return this.http.post<any>(this.APIUrl+'/PhongHoc/', data);
-  // }
-  deletePhongHoc(id:number){
+  suaPhongHoc(idPhongHoc:any,val:any){
+    return this.http.put<any>(this.APIUrl+'/PhongHoc/',+idPhongHoc,val);
+  }
+  xoaPhongHoc(id:number){
     return this.http.delete<any>(this.APIUrl+'/PhongHoc/'+id);
   }
   //End-PhongHoc

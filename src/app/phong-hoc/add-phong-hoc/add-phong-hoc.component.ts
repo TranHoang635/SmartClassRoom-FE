@@ -14,18 +14,28 @@ export class AddPhongHocComponent implements OnInit {
   constructor(private service:SharedService) { }
 
   ngOnInit(): void {
-    this.loadPhong();
+
   }
 
   loadPhong(){
-    this.service.dsPhongHoc().subscribe(dataPhong =>{
-      this.DsPhongHoc=dataPhong;
+    this.service.dsPhongHoc().subscribe(dataPh =>{
+      this.DsPhongHoc=dataPh;
     })
   }
-  onSubmit(monHocAdd:any){
-    this.service.themMonHoc(monHocAdd).subscribe(result =>{
+
+  onSubmit(data: any) {
+    // kiểm tra xem dữ liệu đã nhập vào form có đầy đủ hay không
+    if (!data.tenPhongHoc || !data.moTa || !data.tinhTrang) {
+      alert("Vui lòng nhập đầy đủ thông tin!");
+      return;
+    }
+    this.service.themPhongHoc(data).subscribe(result => {
       alert(result.toString());
+      // reset giá trị của biến DsPhongHoc để load lại danh sách phòng học
+      this.DsPhongHoc = [];
+      this.loadPhong();
     });
   }
+  
 
 }
