@@ -38,7 +38,7 @@ const routes: Routes = [
   {
     path: 'home', 
     component: HomeComponent, 
-    children: [ // lớp con bên trong lớp cha 3 (single page: sidebar, navbar giữ nguyên vị trí khi di chuyển những lớp con bên trong)
+    children: [ // lớp con bên trong lớp cha 4 (single page: sidebar, navbar giữ nguyên vị trí khi di chuyển những lớp con bên trong)
       { path: 'page-profile', component: PageProfileComponent },
 
       { path: 'page-activity', component: PageActivityComponent },

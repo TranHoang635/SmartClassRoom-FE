@@ -1,5 +1,4 @@
 <title>Administrator</title>
-
 <div class="row">
     <div class="col-lg-2">
         <a type="button" class="btn btn-primary active" style=" float: left;" data-toggle="modal" data-target="#exampleModal" data-backdrop="static" data-keyboard="false">
@@ -57,7 +56,7 @@
         <div class="modal-dialog" style="max-width:800px!important">
         <div class="modal-content" style="border-radius: 6px;">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Chỉnh sửa Tài Khoản</h5>
+                    <h3 style="font-weight: bold;" class="modal-title" id="exampleModalLabel">Chỉnh sửa Tài Khoản</h3>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="ngOnInit()">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -67,7 +66,7 @@
                     <!-- <app-edit-add-lop-hoc [lopHoc]="lopHoc" *ngIf="dangThemSua" ></app-edit-add-lop-hoc>  -->
                     <app-edit-user [chiTietUser]="user" [dsUser]="DSUser" [dsLopHoc]="DsLopHoc" ></app-edit-user>                
                 </div>
-        </div>
+            </div>
         </div>
     </div>
     
@@ -75,6 +74,7 @@
         <thead>
             <th>TT</th>
             <th>Username</th>
+            <th>Password</th>
             <th>Họ Tên</th>
             <th>Địa Chỉ</th>
             <th>Email</th>
@@ -91,6 +91,7 @@
                 }; let i=index;">
                 <td>{{ i+1 }}</td>
                 <td>{{user.userName}}</td>
+                <td>{{user.passWord}}</td>
                 <td>{{user.hoTen}}</td>
                 <td>{{user.diaChi}}</td>
                 <td>{{user.email}}</td>

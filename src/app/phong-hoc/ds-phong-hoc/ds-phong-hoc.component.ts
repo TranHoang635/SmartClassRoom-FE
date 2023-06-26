@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/shared.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-ds-phong-hoc',
@@ -9,10 +9,13 @@ import { Router } from '@angular/router';
 })
 export class DsPhongHocComponent implements OnInit {
 
-  constructor(private service: SharedService, private router: Router) { }
+  constructor(
+    private router: Router, 
+    private service: SharedService, 
+    private activatedRoute: ActivatedRoute) { }
 
   DsPhongHoc: any = [];
-  phonghoc: any = [];
+
 
   // phan trang
   title = 'phantrang';
@@ -27,13 +30,14 @@ export class DsPhongHocComponent implements OnInit {
   //search
 
   ngOnInit(): void {
-    this.reloadDsPhongHoc();
+    this.dsPhongHoc();
   }
-  reloadDsPhongHoc(){
+  dsPhongHoc(){
     this.service.dsPhongHoc().subscribe(data=>{
       this.DsPhongHoc=data;
     })
   }
+
   // Phân trang
   onTableDataChange (event: any){
     this.page = event;
@@ -45,7 +49,6 @@ export class DsPhongHocComponent implements OnInit {
     this.page = 1;
     this.DsPhongHoc();
   }
-
   Search(){
     if(this.search== ""){
       this.ngOnInit();
@@ -55,22 +58,15 @@ export class DsPhongHocComponent implements OnInit {
       })
     }
   }
-  locTinhTrang(value:any){ 
-    console.log(value);   
-    this.service.theoTinhTrang(value).subscribe(data=>{
-      this.DsPhongHoc=data;
-    })
+  // Phân trang và search
+
+
+  suaPhongHoc(idLopHoc:any){
+   
   }
-
-  
-
-  editPhongHoc(phonghoc: any){
-    this.phonghoc = phonghoc;
-  }
-
-  deletePhongHoc(id, tenPhongHoc){
+  xoaPhongHoc(id, tenPhongHoc){
     if(confirm("Xóa Phòng: "+ tenPhongHoc +"? ")){
-        this.service.delete(id).subscribe(res=>{
+        this.service.xoaPhongHoc(id).subscribe(res=>{
           alert(res.toString());
         this.service.dsPhongHoc().subscribe(data=>{
           this.DsPhongHoc=data;
