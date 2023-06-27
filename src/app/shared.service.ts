@@ -96,7 +96,7 @@ export class SharedService {
     return this.http.post<any>(this.APIUrl+'/PhongHoc', data);
   }
   suaPhongHoc(idPhongHoc:any,val:any){
-    return this.http.put<any>(this.APIUrl+'/PhongHoc/',+idPhongHoc,val);
+    return this.http.put<any>(this.APIUrl+'/PhongHoc/'+idPhongHoc,val);
   }
   xoaPhongHoc(id:number){
     return this.http.delete<any>(this.APIUrl+'/PhongHoc/'+id);
@@ -136,7 +136,6 @@ export class SharedService {
   addBuoiHoc(data:any){
     return this.http.post<any>(this.APIUrl+'/QLBuoiHoc', data);
   }
-
   chiTietUserND(){
     return this.http.get<any>(this.APIUrl+'/NhanDiens/ChiTiet/3/6')
   }
@@ -149,11 +148,11 @@ export class SharedService {
   themTaiLieu(data:any){
     return this.http.post<any>(this.APIUrl+'/TaiLieu', data);
   }
-  suaTaiLieu(iduser:any,val:any){
-    return this.http.put<any>(this.APIUrl+'/TaiLieu/'+iduser,val);
+  suaTaiLieu(idTaiLieu:any,val:any){
+    return this.http.put<any>(this.APIUrl+'/TaiLieu/'+idTaiLieu,val);
   }
-  xoaTaiLieu(idUser:number):Observable<any[]>{
-    return this.http.delete<any>(this.APIUrl+'/TaiLieu/'+idUser);
+  xoaTaiLieu(id:number){
+    return this.http.delete<any>(this.APIUrl+'/TaiLieu/'+id);
   }
   //End-TaiLieu
 }

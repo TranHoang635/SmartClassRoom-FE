@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/shared.service';
 import { FormControl, FormGroup } from '@angular/forms';  
 import { FormBuilder } from '@angular/forms';
@@ -17,7 +17,7 @@ export class AddPhongHocComponent implements OnInit {
   MaPhongHoc:string;
   TenPhongHoc:string;
   MoTa:string;
-  IdTinhTrang:number;
+  IdtinhTrang:number;
   val:any;
 
   constructor(
@@ -28,7 +28,7 @@ export class AddPhongHocComponent implements OnInit {
         MaPhongHoc: new FormControl(),
         TenPhongHoc: new FormControl(),
         MoTa: new FormControl(),
-        IdTinhTrang: new FormControl(),
+        IdtinhTrang: new FormControl()
       })
      }
 

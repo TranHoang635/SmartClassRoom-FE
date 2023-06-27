@@ -40,7 +40,7 @@
     </div>
     <div class="modal fade" id="editbuoi" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" style="max-width:800px!important">
-        <div class="modal-content">
+        <div class="modal-content" style="border-radius: 6px;">
                 <div class="modal-header">
                     <h3 style="font-weight: bold;" class="modal-title" id="exampleModalLabel">Chỉnh sửa Buổi Học</h3>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="ngOnInit()">
@@ -73,7 +73,7 @@
                 }; let i=index;">
                 <td>{{ i+1 }}</td>
                 <td>{{buoi.tenMonHoc}}</td>
-                <td>{{ buoi.maLopHoc}}</td>
+                <td>{{buoi.maLopHoc}}</td>
                 <td>{{buoi.tenPhongHoc}}</td>
                 <td>{{buoi.hoTen}}</td>
                 <td>{{buoi.ngayHoc | date:'dd/MM/yyy'}}</td>

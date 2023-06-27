@@ -11,8 +11,10 @@ export class DsLinkTailieuComponent implements OnInit {
 
   constructor(private service: SharedService, private router: Router) { }
 
-  DsTaiLieu: any = [];
-  tailieu: any = [];
+  DsTaiLieu:any=[];
+  tailieu:any=[];
+  search: any;
+  value:any;
 
   // phan trang
   title = 'phantrang';
@@ -21,16 +23,14 @@ export class DsLinkTailieuComponent implements OnInit {
   count: number = 0;
   tableSize: number = 10;
 
-  //search
-  search: any;
-  //search
 
   ngOnInit(): void {
-    this.reloadDsTaiLieu();
+    this.loadTaiLieu();
   }
-  reloadDsTaiLieu() {
-    this.service.dsTaiLieu().subscribe(data => {
-      this.DsTaiLieu = data;
+  loadTaiLieu() {
+    this.service.dsTaiLieu().subscribe(data=>{
+      this.DsTaiLieu=data;
+      console.log("ds tailieu",data);
     })
   }
   // Phân trang
@@ -45,7 +45,6 @@ export class DsLinkTailieuComponent implements OnInit {
     this.DsTaiLieu();
   }
   //End-Phân trang
-
   Search() {
     if (this.search == "") {
       this.ngOnInit();
@@ -56,21 +55,16 @@ export class DsLinkTailieuComponent implements OnInit {
     }
   }
 
-  suaTaiLieu(tailieu: any) {
-    this.tailieu = tailieu;
-  }
-  loadTaiLieu() {
-    this.service.dsTaiLieu().subscribe(dataTaiLieu => {
-      this.DsTaiLieu = dataTaiLieu;
-    })
+  suaTaiLieu(tlieu: any) {
+    this.tailieu = tlieu;
   }
 
   //Xoa Tài Lieu
-  xoaTaiLieu(idTaiLieu, tenTaiLieu) {
+  xoaTaiLieu(id, tenTaiLieu) {
     if (confirm("Xóa Tài Liệu: " + tenTaiLieu + " ? ")) {
-      this.service.deleteUser(idTaiLieu).subscribe(res => {
+      this.service.xoaTaiLieu(id).subscribe(res => {
         alert(res.toString());
-        this.service.dsUsers().subscribe(data => {
+        this.service.dsTaiLieu().subscribe(data => {
           this.DsTaiLieu = data;
         });
       })

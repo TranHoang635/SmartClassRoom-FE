@@ -28,7 +28,8 @@
                         <h3 class="modal-title" id="exampleModalLabel" style="font-weight: bold;">Thêm phòng học</h3>
                     </div>
                     <div class="col-lg-2">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="ngOnInit()">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" 
+                        (click)="ngOnInit()">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
@@ -77,7 +78,7 @@
                 <td>{{ phongHoc.maPhongHoc }}</td>
                 <td>{{ phongHoc.tenPhongHoc }}</td>
                 <td>{{ phongHoc.moTa }}</td>
-                <td>{{ phongHoc.tinhtrangPhongHoc }}</td>
+                <td>{{ phongHoc.tinhTrang }}</td>
                 <td>
                     <button  class="btn-primary btn" (click)="chiTietPhong(phong)"><i class="icon ion-edit "> </i> Edit  </button> &nbsp;
                     <button  class="btn-danger btn" (click)="xoaPhongHoc(phongHoc.idPhongHoc, phongHoc.tenPhongHoc)" ><i class="icon ion-close "> </i> Delete  </button> 

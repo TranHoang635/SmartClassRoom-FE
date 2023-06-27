@@ -1,6 +1,6 @@
 import { Component, OnInit, Input} from '@angular/core';
 import { SharedService } from 'src/app/shared.service';
-import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { FormControl, FormGroup} from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 
 @Component({
@@ -15,11 +15,10 @@ export class EditMonHocComponent implements OnInit {
     DsLopHoc:any=[];
   DsGiaoVien:any=[];
   DsPhongHoc:any=[];
-
   val:any;
   editMon: FormGroup;
-    TenMonHoc: string ="";
-    NgayBatDau: string ="";
+    TenMonHoc: string;
+    NgayBatDau: string;
     SoTiet: number;
     IdPhongHoc: number;
     IdLopHoc: number;
