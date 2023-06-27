@@ -14,6 +14,16 @@ import * as signalR from '@microsoft/signalr';
 
 export class DsUsersComponent implements OnInit {
 
+  showModal = false;
+
+  openModal() {
+    this.showModal = true;
+  }
+
+  closeModal() {
+    this.showModal = false;
+  }
+
   constructor(private service: SharedService, private http: HttpClient) { }
   loaiUser: any;
   DsLopHoc: any = [];

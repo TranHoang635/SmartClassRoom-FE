@@ -24,7 +24,7 @@
             <div class="form-group" style="padding-top: 8px;"> 
                 <label class="form-control-label"><span class="tx-danger"></span></label><br>                   
                 <button type="button"  class="btn btn-primary" (click)="saveLopHpc(lopHoc.idLopHoc)">
-                    <i class="icon ion-archive"></i> | Save 
+                    <i class="icon ion-archive"></i> | Lưu lại 
                 </button>
             </div>
         </div>
@@ -66,7 +66,7 @@
                 <td>{{user.email}}</td>
                 <td>{{user.dienThoai}}</td>            
                 <td>
-                    <button  class="btn-danger btn" (click)="loaiKhoiDS(user.idUser , user.idLopHoc, user.hoTen)"><i class="icon ion-close"> </i> Remove </button>
+                    <button  class="btn-danger btn" (click)="loaiKhoiDS(user.idUser , user.idLopHoc, user.hoTen)"><i class="icon ion-close"> </i> Loại bỏ học sinh </button>
                 </td>
             </tr>
         </tbody>
@@ -86,7 +86,7 @@
             <div class="modal-header">
                 
                     <div class="col-lg-10">
-                        <h3 class="modal-title " id="exampleModalLabel" style="margin: 0!important;">Thêm Sinh viên vào lớp học</h3>
+                        <h3 class="modal-title " id="exampleModalLabel" style="margin: 0!important;">Thêm học sinh vào lớp học</h3>
                     </div>
                     <div class="col-lg-2">                       
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="ngOnInit()">
@@ -119,7 +119,7 @@
                             <td>{{u.dienThoai}}</td>            
                             <td>
                                 <button  class="btn-primary btn"  (click)="addUsertoClass(u.idUser, lopHoc.idLopHoc)" >
-                                    <i class="fa fa-plus">  </i> Add
+                                    <i class="fa fa-plus">  </i> Thêm
                                 </button>
                                 <!-- <button  class="btn-danger btn" (click)="loaiKhoiDS(u.idUser , u.idLopHoc)"><i class="icon ion-close"> </i> Remove </button> -->
                             </td>
@@ -130,8 +130,7 @@
                     <pagination-controls
                     previousLabel="Prev"
                     nextLabel="Next"
-                    (pageChange)="onTableDataChange2($event)"
-                    >
+                    (pageChange)="onTableDataChange2($event)">
                     </pagination-controls>
                 </div>                               
             </div>

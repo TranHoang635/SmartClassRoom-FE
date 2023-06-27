@@ -14,7 +14,9 @@ export class AddUserComponent implements OnInit {
   userAdd: FormControl;
   submited:boolean = false;
   constructor(
-    private service:SharedService, private fb:FormBuilder, private router: ActivatedRoute,  ) { }
+    private fb:FormBuilder, 
+    private service:SharedService, 
+    private router: ActivatedRoute,  ) { }
 
   @Input() DSUser:any=[]; 
 

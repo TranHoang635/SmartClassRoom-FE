@@ -53,12 +53,14 @@
                     </button>
                 </div>            
                 <div class="modal-body">                       
-                    <app-edit-phong-hoc [chiTietPhong]="phong" ></app-edit-phong-hoc>            
+                    <app-edit-phong-hoc [chiTietPhong]="phong" ></app-edit-phong-hoc>
+                    
                 </div>
             </div>
         </div>
     </div>
     <!-- Sự kiện xử lý button chỉnh sửa -->
+
     <table class="table table-striped">
         <thead>
             <th>TT</th>
@@ -80,8 +82,8 @@
                 <td>{{ phongHoc.moTa }}</td>
                 <td>{{ phongHoc.tinhTrang }}</td>
                 <td>
-                    <button  class="btn-primary btn" (click)="chiTietPhong(phong)"><i class="icon ion-edit "> </i> Edit  </button> &nbsp;
-                    <button  class="btn-danger btn" (click)="xoaPhongHoc(phongHoc.idPhongHoc, phongHoc.tenPhongHoc)" ><i class="icon ion-close "> </i> Delete  </button> 
+                    <button  class="btn-primary btn" (click)="chiTietPhong(phong)"><i class="icon ion-edit "> </i> Chỉnh sửa  </button> &nbsp;
+                    <button  class="btn-danger btn" (click)="xoaPhongHoc(phongHoc.idPhongHoc, phongHoc.tenPhongHoc)" ><i class="icon ion-close "> </i> Xóa  </button> 
                 </td>
             </tr>
         </tbody>
