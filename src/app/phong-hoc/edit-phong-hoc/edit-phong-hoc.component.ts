@@ -11,16 +11,15 @@ import { ActivatedRoute, Route } from '@angular/router';
 export class EditPhongHocComponent implements OnInit {
 
   @Input('chiTietPhong')
-  phongHoc:any=[];
-  
-  DsPhongHoc:any=[];
+    phong:any=[];
+    DsPhongHoc:any=[];
 
   editPhongHoc: FormGroup;
     MaPhongHoc:string;
     TenPhongHoc:string;
     MoTa:string;
     IdTinhTrang: number;
-  val:any;
+    val:any;
   
   constructor(
     private fb:FormBuilder,

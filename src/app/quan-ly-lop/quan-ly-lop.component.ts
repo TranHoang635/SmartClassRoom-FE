@@ -22,8 +22,8 @@ export class QuanLyLopComponent implements OnInit {
   tableSize: number = 10;
   tableSizes: any = [10,15,20,25,30];
  //!-- End Phan Trang 
- search:any // Search
- buoi:any=[];
+  search:any // Search
+  buoi:any=[];
 
   ngOnInit(): void {
     this.loadBuoiHoc();

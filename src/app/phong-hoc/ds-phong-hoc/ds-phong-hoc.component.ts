@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { SharedService } from 'src/app/shared.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ds-phong-hoc',
@@ -9,9 +9,9 @@ import { SharedService } from 'src/app/shared.service';
 })
 export class DsPhongHocComponent implements OnInit {
 
-  constructor(private service: SharedService) { }
+  constructor(private service: SharedService, private router: Router) { }
 
-  DsPhongHoc: any = [];
+  DsPhongHoc:any = [];
   phong:any=[];
   search:any;
   value:any;
@@ -60,7 +60,7 @@ export class DsPhongHocComponent implements OnInit {
 
 
   chiTietPhong(phong:any){
-   this.phong = phong;
+   this.phong=phong;
   }
   xoaPhongHoc(id, tenPhongHoc){
     if(confirm("Xóa Phòng: "+ tenPhongHoc +"? ")){

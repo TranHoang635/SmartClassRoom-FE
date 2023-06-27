@@ -1,5 +1,4 @@
 <title>Tài liệu</title>
-
 <div class="row">
     <div class="col-lg-2">
         <a type="button" class="btn btn-primary active" style="float: left;" data-toggle="modal"
@@ -13,7 +12,8 @@
         <div class="row">
             <div class="col-lg-5">
                 <div class="form-group mg-b-10-force">
-                    <input class="form-control" placeholder="Nhập tên tài liệu để tìm kiếm" />
+                    <input class="form-control" placeholder="Nhập tên tài liệu để tìm kiếm" 
+                    [(ngModel)]="search" (ngModelChange)="Search()"/>
                 </div>
             </div>
         </div>
@@ -34,9 +34,8 @@
                         </button>
                     </div>
                 </div>
-
                 <div class="modal-body">
-                    <app-add-link-tailieu [dsTaiLieu]="DsTaiLieu"></app-add-link-tailieu>
+                    <app-add-link-tailieu></app-add-link-tailieu>
                 </div>
             </div>
         </div>
@@ -52,22 +51,19 @@
             <th>Tùy chọn</th>
         </thead>
         <tbody>
-            <tr *ngFor="let tailieu of DsTaiLieu| paginate:{
+            <tr *ngFor="let taiLieu of DsTaiLieu| paginate:{
                 itemsPerPage: tableSize,
                 currentPage: page,
                 totalItems: count
                 }; let i=index;">
                 <td>{{ i+1 }}</td>
-                <td>{{tailieu.tenTaiLieu}}</td>
-                <td>{{tailieu.urlTailieu}}</td>
-                <td>{{tailieu.monHoc}}</td>
-                <td>{{tailieu.user}}</td>
+                <td>{{taiLieu.tenTaiLieu}}</td>
+                <td>{{taiLieu.urlTaiLieu}}</td>
+                <td>{{taiLieu.tenMonHoc}}</td>
+                <td>{{taiLieu.hoTen}}</td>
                 <td>
-                    <button  class="btn-primary btn"  href="#" routerLink="edit-mon/{{tailieu.idTaiLieu}}" 
-                    data-toggle="modal" data-target="#editmon" data-backdrop="static" data-keyboard="false" (click)="suaTaiLieu(tailieu)"> <!----> 
-                        <i class="icon ion-edit ">  </i> Edit
-                    </button> &nbsp;
-                    <button  class="btn-danger btn" (click)="xoaTaiLieu(tailieu.idTaiLieu, tailieu.tenTaiLieu)"><i class="icon ion-close"></i> Delete </button>
+                    <button  class="btn-primary btn" data-toggle="modal" (click)="suaTaiLieu(tailieu)"><i class="icon ion-edit ">  </i> Edit </button> &nbsp;
+                    <button  class="btn-danger btn" (click)="xoaTaiLieu(taiLieu.idTaiLieu, taiLieu.tenTaiLieu)"><i class="icon ion-close"></i> Delete </button>
                 </td>
             </tr>
         </tbody>
