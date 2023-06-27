@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { SharedService } from 'src/app/shared.service';
-import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-ds-phong-hoc',
@@ -9,12 +9,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class DsPhongHocComponent implements OnInit {
 
-  constructor(
-    private router: Router, 
-    private service: SharedService, 
-    private activatedRoute: ActivatedRoute) { }
+  constructor(private service: SharedService) { }
 
   DsPhongHoc: any = [];
+  phong:any=[];
+  search:any;
+  value:any;
 
 
   // phan trang
@@ -25,16 +25,14 @@ export class DsPhongHocComponent implements OnInit {
   tableSize: number = 10;
   //!-- End Phan Trang
 
-  //search
-  search: any;
-  //search
 
   ngOnInit(): void {
-    this.dsPhongHoc();
+    this.loadPhongHoc();
   }
-  dsPhongHoc(){
+  loadPhongHoc(){
     this.service.dsPhongHoc().subscribe(data=>{
       this.DsPhongHoc=data;
+      console.log("ds phong",data);
     })
   }
 
@@ -61,8 +59,8 @@ export class DsPhongHocComponent implements OnInit {
   // Phân trang và search
 
 
-  suaPhongHoc(idLopHoc:any){
-   
+  chiTietPhong(phong:any){
+   this.phong = phong;
   }
   xoaPhongHoc(id, tenPhongHoc){
     if(confirm("Xóa Phòng: "+ tenPhongHoc +"? ")){

@@ -24,11 +24,12 @@ export class AddQuanLyComponent implements OnInit {
     NgayHoc:string;
     Buoi:string;
     IdTinhTrang:number;
- val:any;
+    val:any;
 
-  constructor(private service:SharedService, 
+  constructor(
     private fb:FormBuilder,
-    private router:ActivatedRoute) { 
+    private router:ActivatedRoute,
+    private service:SharedService) { 
       this.addQLLopForm = fb.group({
         IdMonHoc: new FormControl(),
         IdLopHoc: new FormControl(),
