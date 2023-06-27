@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, FormBuilder, FormGroup } from '@angular/forms';
 import { SharedService } from 'src/app/shared.service';
+import { ActivatedRoute, Route } from '@angular/router';
 
 @Component({
   selector: 'app-edit-phong-hoc',
@@ -8,23 +9,23 @@ import { SharedService } from 'src/app/shared.service';
   styleUrls: ['./edit-phong-hoc.component.css']
 })
 export class EditPhongHocComponent implements OnInit {
-  @Input('editPhongHoc')
+
+  @Input('chiTietPhong')
   phongHoc:any=[];
-  @Input('dsPhongHoc')
+  
   DsPhongHoc:any=[];
-  @Input('chiTietPhongHoc')
-  phonghoc:any=[];
 
-  val:any;
   editPhongHoc: FormGroup;
-    MaPhongHoc: string ="";
-    TenPhongHoc: string ="";
-    MoTa: string ="";
+    MaPhongHoc:string;
+    TenPhongHoc:string;
+    MoTa:string;
     IdTinhTrang: number;
-
+  val:any;
+  
   constructor(
-    private service:SharedService, 
-    private fb:FormBuilder) {
+    private fb:FormBuilder,
+    private service:SharedService,
+    private router:ActivatedRoute ) {
       this.editPhongHoc = fb.group({
         MaPhongHoc: new FormControl(),
         TenPhongHoc: new FormControl(),
@@ -37,7 +38,7 @@ export class EditPhongHocComponent implements OnInit {
     this.loadPhong();
   }
 
-  PostData(idPhongHoc){    
+  PutData(idPhongHoc){    
     this.val = this.editPhongHoc.value;
     console.log(this.val);
     this.service.suaPhongHoc(idPhongHoc,this.val).subscribe(data=>{

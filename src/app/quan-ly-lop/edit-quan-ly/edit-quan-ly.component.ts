@@ -27,10 +27,11 @@ export class EditQuanLyComponent implements OnInit {
     NgayHoc:string;
     Buoi:string;
     IdTinhTrang:number;
- val:any;
+  val:any;
 
-  constructor(private service:SharedService, 
+  constructor(
     private fb:FormBuilder,
+    private service:SharedService, 
     private router:ActivatedRoute) { 
       this.editQLLopForm = fb.group({
         IdMonHoc: new FormControl(),

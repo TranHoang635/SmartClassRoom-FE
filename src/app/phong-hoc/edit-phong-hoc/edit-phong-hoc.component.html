@@ -19,11 +19,11 @@
             <div class="col-lg-12">
                 <div class="form-group mg-b-10-force">
                     <label class="form-control-label">Tình Trạng: </label>
-                    <select class="form-control select2" name="IdTinhTrang" ngModel>
-                        <option [value]=1> Đang Học </option>
-                        <option [value]=2> Hoàn Thành </option>
-                        <option [value]=3> Tạm Ngừng </option>
-                        <option [value]=4> Chờ Xác Nhận</option>
+                    <select class="form-control select2" formControlName="IdTinhTrang" [(ngModel)]="phongHoc.idTinhTrang">
+                        <option [value]=1 [selected]="phongHoc.idTinhTrang == 1"> Đang Học </option>
+                        <option [value]=2 [selected]="phongHoc.idTinhTrang == 2"> Hoàn Thành </option>
+                        <option [value]=3 [selected]="phongHoc.idTinhTrang == 3"> Tạm Ngừng </option>
+                        <option [value]=4 [selected]="phongHoc.idTinhTrang == 4"> Chờ Xác Nhận</option>
                     </select>
                 </div>
             </div>
@@ -31,7 +31,7 @@
         </div>
 
         <div class="form-layout-footer">
-            <button class="btn btn-primary bd-0" style="margin-right: 10px;" (click)="PostData(phongHoc.idPhongHoc)"> Thêm phòng học</button>
+            <button class="btn btn-primary bd-0" style="margin-right: 10px;" (click)="PutData(phongHoc.idPhongHoc)"> Sửa phòng học</button>
             <button class="btn btn-secondary bd-0" data-dismiss="modal">Hủy</button>
         </div><!-- form-layout-footer -->
     </div><!-- form-layout -->

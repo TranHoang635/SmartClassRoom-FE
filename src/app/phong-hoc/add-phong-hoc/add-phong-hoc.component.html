@@ -1,32 +1,32 @@
-<form id="addUserForm" #data="ngForm" (ngSubmit)="onSubmit(data.value)">
+<form id="addUserForm" [formGroup]="themPhongHocForm">
     <div class="form-layout">
         <div class="row mg-b-25">
 
             <div class="col-lg-6">
                 <div class="form-group">
                     <label class="form-control-label">Mã phòng học: <span class="tx-danger">*</span></label>
-                    <input class="form-control" type="text" name="Maphonghoc" placeholder="Mã phòng học" ngModel>
+                    <input class="form-control" type="text" name="Maphonghoc" placeholder="Mã phòng học" formControlName="MaPhongHoc" >
                 </div>
             </div>
 
             <div class="col-lg-6">
                 <div class="form-group">
                     <label class="form-control-label">Tên phòng học: <span class="tx-danger">*</span></label>
-                    <input class="form-control" type="text" name="Tentailieu" placeholder="Tên phòng học" ngModel>
+                    <input class="form-control" type="text" name="Tentailieu" placeholder="Tên phòng học" formControlName="TenPhongHoc">
                 </div>
             </div>
 
             <div class="col-lg-12">
                 <div class="form-group">
                     <label class="form-control-label">Mô tả: <span class="tx-danger">*</span></label>
-                    <textarea rows="2" class="form-control" placeholder="Mô tả phòng học"></textarea>
+                    <textarea rows="2" class="form-control" placeholder="Mô tả phòng học" formControlName="MoTa" ></textarea>
                 </div>
             </div>
 
             <div class="col-lg-12">
                 <div class="form-group mg-b-10-force">
                     <label class="form-control-label">Tình Trạng: </label>
-                    <select class="form-control select2" name="IdTinhTrang" ngModel>
+                    <select class="form-control select2" formControlName="IdTinhTrang" >
                         <option [value]=1> Đang trống </option>
                         <option [value]=2> Đang học </option>
                         <option [value]=3> Đang chờ duyệt </option>
@@ -37,7 +37,7 @@
         </div>
 
         <div class="form-layout-footer">
-            <button class="btn btn-primary bd-0" style="margin-right: 10px;"> Thêm phòng học</button>
+            <button class="btn btn-primary bd-0" style="margin-right: 10px;" (click)="PostData()"> Thêm phòng học</button>
             <button class="btn btn-secondary bd-0" data-dismiss="modal">Hủy</button>
         </div><!-- form-layout-footer -->
     </div><!-- form-layout -->
