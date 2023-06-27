@@ -12,7 +12,7 @@ export class DsPhongHocComponent implements OnInit {
   constructor(private service: SharedService, private router: Router) { }
 
   DsPhongHoc:any = [];
-  phong:any=[];
+  phongHoc:any=[];
   search:any;
   value:any;
 
@@ -60,7 +60,7 @@ export class DsPhongHocComponent implements OnInit {
 
 
   chiTietPhong(phong:any){
-   this.phong=phong;
+   this.phongHoc=phong;
   }
   xoaPhongHoc(id, tenPhongHoc){
     if(confirm("Xóa Phòng: "+ tenPhongHoc +"? ")){

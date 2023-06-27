@@ -12,8 +12,8 @@
         <div class="row">
             <div class="col-lg-5">
                 <div class="form-group mg-b-10-force">
-                    <input class="form-control" placeholder="Nhập tên phòng học để tìm kiếm" 
-                    [(ngModel)]="search" (ngModelChange)="Search()"/>
+                    <input class="form-control" placeholder="Nhập tên phòng học để tìm kiếm" [(ngModel)]="search"
+                        (ngModelChange)="Search()" />
                 </div>
             </div>
         </div>
@@ -21,15 +21,15 @@
 
     <!-- Sự kiện xử lý button thêm -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" style="max-width:500px!important">
+        <div class="modal-dialog" style="max-width:600px!important">
             <div class="modal-content" style="border-radius: 6px;">
                 <div class="modal-header">
                     <div class="col-lg-10">
                         <h3 class="modal-title" id="exampleModalLabel" style="font-weight: bold;">Thêm phòng học</h3>
                     </div>
                     <div class="col-lg-2">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" 
-                        (click)="ngOnInit()">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                            (click)="ngOnInit()">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
@@ -43,22 +43,24 @@
     <!-- Sự kiện xử lý button thêm -->
 
     <!-- Sự kiện xử lý button chỉnh sửa -->
-    <div class="modal fade" id="editphong" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" style="max-width:800px!important">
-        <div class="modal-content" style="border-radius: 6px;">
+    <div class="modal fade" id="editPhongHoc" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="max-width:600px!important">
+            <div class="modal-content" style="border-radius: 6px;">
                 <div class="modal-header">
                     <h3 style="font-weight: bold;" class="modal-title" id="exampleModalLabel">Chỉnh sửa Phòng Học</h3>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="ngOnInit()">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                </div>            
-                <div class="modal-body">                       
-                    <app-edit-phong-hoc [chiTietPhong]="phong" ></app-edit-phong-hoc>            
+                </div>
+                <div class="modal-body">
+                    <app-edit-phong-hoc [chiTietPhong]="phongHoc"></app-edit-phong-hoc>
+
                 </div>
             </div>
         </div>
     </div>
     <!-- Sự kiện xử lý button chỉnh sửa -->
+
     <table class="table table-striped">
         <thead>
             <th>TT</th>
@@ -80,18 +82,18 @@
                 <td>{{ phongHoc.moTa }}</td>
                 <td>{{ phongHoc.tinhTrang }}</td>
                 <td>
-                    <button  class="btn-primary btn" (click)="chiTietPhong(phong)"><i class="icon ion-edit "> </i> Edit  </button> &nbsp;
-                    <button  class="btn-danger btn" (click)="xoaPhongHoc(phongHoc.idPhongHoc, phongHoc.tenPhongHoc)" ><i class="icon ion-close "> </i> Delete  </button> 
+                    <button class="btn-primary btn" data-toggle="modal" data-target="#editPhongHoc"
+                        data-backdrop="static" data-keyboard="false" (click)="chiTietPhong(phongHoc)"><i
+                            class="icon ion-edit "> </i> Chỉnh sửa </button> &nbsp;
+                    <button class="btn-danger btn" (click)="xoaPhongHoc(phongHoc.idPhongHoc, phongHoc.tenPhongHoc)"><i
+                            class="icon ion-close "> </i> Xóa </button>
                 </td>
             </tr>
         </tbody>
     </table>
 
     <div class="row"> <!-- Phân trang-->
-        <pagination-controls 
-        previousLabel="Prev" 
-        nextLabel="Next"
-        (pageChange)="onTableDataChange($event)">
+        <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChange($event)">
         </pagination-controls>
     </div>
 </div>

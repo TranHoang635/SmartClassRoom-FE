@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +10,9 @@ import { Observable } from 'rxjs';
 export class SharedService {
   //readonly APIUrl = "http://localhost:5001/api";
   readonly APIUrl = "http://localhost:55907/api";
-  constructor(private http:HttpClient) { }
+  constructor(
+    private router: Router,
+    private http:HttpClient) { }
 
 //User
   dsUsers():Observable<any[]>{
@@ -155,4 +159,19 @@ export class SharedService {
     return this.http.delete<any>(this.APIUrl+'/TaiLieu/'+id);
   }
   //End-TaiLieu
+
+  //login
+  login(username: string, password: string): Observable<any> {
+    const body = { username, password };
+    return this.http.post<any>(`${this.APIUrl}/login`, body).pipe(
+      tap(response => {
+        localStorage.setItem('user', JSON.stringify(response)); // Lưu thông tin user vào local storage
+        this.router.navigateByUrl("home/dashboard"); // Chuyển hướng đến trang dashboard sau khi đăng nhập thành công
+      })
+    );
+  }
+
+  logout() {
+    localStorage.removeItem('user'); // Xóa thông tin user khỏi local storage khi đăng xuất
+  }
 }

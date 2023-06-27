@@ -80,12 +80,11 @@
                 <td>{{buoi.buoi}}</td>
                 <td>{{buoi.tenTinhTrang}}</td>
                 <td>
-                    <button  class="btn-danger btn"  href="#" (click)="chiTietBuoi(buoi)" 
-                    data-toggle="modal" data-target="#editbuoi" data-backdrop="static" data-keyboard="false">
-                        <i class="icon ion-edit ">  </i> Edit
-                    </button> &nbsp;
-                    <button *ngIf="buoi.idTinhTrang == 2" class="btn-primary btn"  (click)="vaoLop(buoi.idBuoiHoc)" >
-                        <i class="icon ion-flash "> </i> Vào lớp </button>
+                    <button  class="btn-primary btn" (click)="chiTietBuoi(buoi)" 
+                    data-toggle="modal" data-target="#editbuoi" data-backdrop="static" data-keyboard="false"><i class="icon ion-edit ">  </i> Chỉnh sửa </button> &nbsp;
+                    
+                    <button *ngIf="buoi.idTinhTrang == 2" class="btn-success btn"  (click)="vaoLop(buoi.idBuoiHoc)" >
+                        <i class="icon ion-flash "></i> Vào lớp </button>
                 </td>
             </tr>
         </tbody>

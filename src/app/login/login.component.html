@@ -3,22 +3,28 @@
 <div class="app-login">
     <div class="container" id="container">
         <div class="form-container sign-in-container">
-            <form action="#">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                 <img src="../../assets/img/logocochu.png" alt="LacHongUniversity">
                 <div class="overlay-container">
                     <div class="overlay">
                         <div class="overlay-panel overlay-right">
-                            <h1>ĐĂNG NHẬP</h1>
-                            <input type="email" placeholder="Email" />
-                            <input type="password" placeholder="Mật khẩu" />
-                            <div class="forgot-password">
-                                <a class="quenmk" routerLink="/forgot">Quên mật khẩu?</a>
-                            </div>
-                            <button class="btn-login" routerLink="/home/dashboard">Đăng nhập</button>
+                                <h1>ĐĂNG NHẬP</h1>
+                                <input formControlName="username" type="email" placeholder="Email" />
+                                <input formControlName="password" type="password" placeholder="Mật khẩu" />
+                                <div class="forgot-password">
+                                    <a class="quenmk" routerLink="/forgot">Quên mật khẩu?</a>
+                                </div>
+                                <button class="btn-login"  type="submit">Đăng nhập</button>
+                                
+                                <div *ngIf="loginForm.errors">
+                                    <div class="alert alert-danger">
+                                      {{ loginForm.errors | json }}
+                                    </div>
+                                  </div>
                         </div>
                     </div>
                 </div>
             </form>
         </div>
     </div>
-</div>>
+</div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { SharedService } from 'src/app/shared.service';
 import { Router } from '@angular/router';
 
@@ -9,12 +10,14 @@ import { Router } from '@angular/router';
 })
 export class DsLinkTailieuComponent implements OnInit {
 
-  constructor(private service: SharedService, private router: Router) { }
+  constructor(
+    private service: SharedService,
+    private http: HttpClient,
+    private router: Router) { }
 
   DsTaiLieu:any=[];
-  tailieu:any=[];
+  taiLieu:any=[];
   search: any;
-  value:any;
 
   // phan trang
   title = 'phantrang';
@@ -26,6 +29,7 @@ export class DsLinkTailieuComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadTaiLieu();
+    console.log("tai ----->",this.taiLieu);
   }
   loadTaiLieu() {
     this.service.dsTaiLieu().subscribe(data=>{
@@ -37,7 +41,6 @@ export class DsLinkTailieuComponent implements OnInit {
   onTableDataChange(event: any) {
     this.page = event;
     this.DsTaiLieu();
-    console.log(this.page);
   }
   onTableSizeChange(event: any): void {
     this.tableSize = event.target.value;
@@ -55,8 +58,10 @@ export class DsLinkTailieuComponent implements OnInit {
     }
   }
 
-  suaTaiLieu(tlieu: any) {
-    this.tailieu = tlieu;
+
+  chiTietTaiLieu(taiLieu:any){
+    this.taiLieu = taiLieu;   
+    // console.log("???",taiLieu);
   }
 
   //Xoa Tài Lieu

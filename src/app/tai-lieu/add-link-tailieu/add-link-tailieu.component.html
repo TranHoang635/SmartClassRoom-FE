@@ -1,15 +1,9 @@
+
 <form id="addUserForm" [formGroup]="themTaiLieuForm">
   <div class="form-layout">
     <div class="row mg-b-25">
-      
-      <div class="col-lg-6">
-        <div class="form-group">
-          <label class="form-control-label">Mã tài liệu: <span class="tx-danger">*</span></label>
-          <input class="form-control" type="text" name="Matailieu" placeholder="Mã tài liệu" formControlName="MaTaiLieu" >
-        </div>
-      </div>
 
-      <div class="col-lg-6">
+      <div class="col-lg-12">
         <div class="form-group">
           <label class="form-control-label">Tên tài liệu: <span class="tx-danger">*</span></label>
           <input class="form-control" type="text" name="Tentailieu" placeholder="Tên tài liệu" formControlName="TenTaiLieu">
@@ -18,12 +12,12 @@
 
       <div class="col-lg-12">
         <div class="form-group">
-          <label class="form-control-label">Link tài liệu: <span class="tx-danger">*</span></label>
+          <label class="form-control-label">Url tài liệu: <span class="tx-danger">*</span></label>
           <input class="form-control" type="text" name="Urltailieu" placeholder="Url tài liệu" formControlName="UrlTaiLieu">
         </div>
       </div>
 
-      <div class="col-lg-6">
+      <div class="col-lg-12">
         <div class="form-group mg-b-10-force">
             <label class="form-control-label">Chọn Môn: </label>
             <select class="form-control select2" formControlName="IdMonHoc" >    
@@ -34,11 +28,10 @@
         </div>
     </div>
 
-    </div>
-
+  </div>
     <div class="form-layout-footer">
       <button class="btn btn-primary bd-0" style="margin-right: 10px;" (click)="PostData()"> Thêm tài liệu</button>
-      <button class="btn btn-secondary bd-0" data-dismiss="modal">Hủy</button>
+      <button class="btn btn-secondary bd-0" data-dismiss="modal">Hủy bỏ</button>
     </div><!-- form-layout-footer -->
   </div><!-- form-layout -->
 </form>

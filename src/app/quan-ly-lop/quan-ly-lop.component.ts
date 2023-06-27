@@ -11,8 +11,14 @@ import { Router } from '@angular/router';
 })
 export class QuanLyLopComponent implements OnInit {
 
-  constructor(private service:SharedService, private http: HttpClient,private router:Router) { }
-  DsBuoiHoc:any=[]
+  constructor(
+    private service:SharedService, 
+    private http: HttpClient,
+    private router:Router) { }
+  
+    DsBuoiHoc:any=[]
+    buoi:any=[];
+    search:any
 
   // phan trang
   title = 'phantrang';
@@ -20,10 +26,8 @@ export class QuanLyLopComponent implements OnInit {
   page:number = 1;
   count:number = 0;
   tableSize: number = 10;
-  tableSizes: any = [10,15,20,25,30];
  //!-- End Phan Trang 
-  search:any // Search
-  buoi:any=[];
+  
 
   ngOnInit(): void {
     this.loadBuoiHoc();

@@ -35,7 +35,7 @@
         </div> <!-- row--> 
     </div>
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"  >
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
         <div class="modal-dialog" style="max-width:800px!important">
             <div class="modal-content" style="border-radius: 6px;">
                 <div class="modal-header">
@@ -62,8 +62,6 @@
                     </button>
                 </div>            
                 <div class="modal-body">
-                    <!-- <app-edit-add-lop-hoc [lopHoc]="lopHoc" *ngIf="dangThemSua"></app-edit-add-lop-hoc> truyền lopHoc qua component app-edit-add-lop-hoc -->
-                    <!-- <app-edit-add-lop-hoc [lopHoc]="lopHoc" *ngIf="dangThemSua" ></app-edit-add-lop-hoc>  -->
                     <app-edit-user [chiTietUser]="user" [dsUser]="DSUser" [dsLopHoc]="DsLopHoc" ></app-edit-user>                
                 </div>
             </div>
@@ -91,7 +89,7 @@
                 }; let i=index;">
                 <td>{{ i+1 }}</td>
                 <td>{{user.userName}}</td>
-                <td>{{user.passWord}}</td>
+                <td>{{user.matKhau}}</td>
                 <td>{{user.hoTen}}</td>
                 <td>{{user.diaChi}}</td>
                 <td>{{user.email}}</td>
@@ -99,9 +97,8 @@
                 <td>{{user.tenLoai}}</td>
                 <td>{{user.maLopHoc}}</td>
                 <td>
-                    <button  class="btn-primary btn"  href="#" (click)="chiTietUser(user)" data-toggle="modal" data-target="#editUser" data-backdrop="static" data-keyboard="false"><i class="icon ion-edit "></i> Edit
-                    </button> &nbsp;
-                    <button  class="btn-danger btn" (click)="xoaUser(user.idUser, user.hoTen)"><i class="icon ion-close"></i> Delete </button>
+                    <button  class="btn-primary btn"  href="#" (click)="chiTietUser(user)" data-toggle="modal" data-target="#editUser" data-backdrop="static" data-keyboard="false"><i class="icon ion-edit "></i> Chỉnh sửa </button> &nbsp;
+                    <button  class="btn-danger btn" (click)="xoaUser(user.idUser, user.hoTen)"><i class="icon ion-close"></i> Xóa </button>
                 </td>
             </tr>
         </tbody>
