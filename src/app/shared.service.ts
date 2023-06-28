@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class SharedService {
   //readonly APIUrl = "http://localhost:5001/api";
   readonly APIUrl = "http://localhost:55907/api";
+  
   constructor(
     private router: Router,
     private http:HttpClient) { }
@@ -163,7 +164,7 @@ export class SharedService {
   //login
   login(username: string, password: string): Observable<any> {
     const body = { username, password };
-    return this.http.post<any>(`${this.APIUrl}/login`, body).pipe(
+    return this.http.post<any>(this.APIUrl+'/login', body).pipe(
       tap(response => {
         localStorage.setItem('user', JSON.stringify(response)); // Lưu thông tin user vào local storage
         this.router.navigateByUrl("home/dashboard"); // Chuyển hướng đến trang dashboard sau khi đăng nhập thành công

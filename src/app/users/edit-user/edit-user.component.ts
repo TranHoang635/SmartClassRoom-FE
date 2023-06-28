@@ -25,6 +25,7 @@ export class EditUserComponent implements OnInit {
 
   editUser: FormGroup;
   UserName:string = "";
+  MatKhau:string = "";
   HoTen:string = "";
   Email:string = "";
   Dienthoai:string = "";
@@ -39,6 +40,7 @@ export class EditUserComponent implements OnInit {
     private router: ActivatedRoute) { 
       this.editUser = fb.group({
         UserName: new FormControl(),
+        MatKhau:new FormControl(),
         HoTen: new FormControl(),
         Email: new FormControl(),
         Dienthoai: new FormControl(),
