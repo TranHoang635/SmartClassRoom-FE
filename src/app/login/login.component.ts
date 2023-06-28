@@ -9,8 +9,8 @@ import { SharedService } from '../shared.service';
 })
 export class LoginComponent {
   loginForm = this.formBuilder.group({
-    username: ['admin'],
-    password: ['admin']
+    username: [''],
+    password: ['']
   });
   
   constructor(

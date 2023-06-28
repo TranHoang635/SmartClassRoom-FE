@@ -3,6 +3,7 @@
 <div class="app-login">
     <div class="container" id="container">
         <div class="form-container sign-in-container">
+
             <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                 <img src="../../assets/img/logocochu.png" alt="LacHongUniversity">
                 <div class="overlay-container">
@@ -20,11 +21,12 @@
                                     <div class="alert alert-danger">
                                       {{ loginForm.errors | json }}
                                     </div>
-                                  </div>
+                                </div>
                         </div>
                     </div>
                 </div>
             </form>
+            
         </div>
     </div>
 </div>
