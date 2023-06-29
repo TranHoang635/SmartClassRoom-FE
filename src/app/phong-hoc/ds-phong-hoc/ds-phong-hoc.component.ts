@@ -32,7 +32,6 @@ export class DsPhongHocComponent implements OnInit {
   loadPhongHoc(){
     this.service.dsPhongHoc().subscribe(data=>{
       this.DsPhongHoc=data;
-      console.log("ds phong",data);
     })
   }
 
@@ -61,10 +60,10 @@ export class DsPhongHocComponent implements OnInit {
 
   chiTietPhong(phong:any){
    this.phongHoc=phong;
-   console.log("ds Phòng",phong);
+   console.log("chiTietPhong",phong);
   }
   xoaPhongHoc(id, tenPhongHoc){
-    if(confirm("Xóa Phòng: "+ tenPhongHoc +"? ")){
+    if(confirm("Xóa Phòng: "+ tenPhongHoc +" ? ")){
         this.service.xoaPhongHoc(id).subscribe(res=>{
           alert(res.toString());
         this.service.dsPhongHoc().subscribe(data=>{

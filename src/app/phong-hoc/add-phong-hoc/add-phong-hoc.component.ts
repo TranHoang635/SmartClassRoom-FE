@@ -14,10 +14,10 @@ export class AddPhongHocComponent implements OnInit {
   DsPhongHoc:any=[];
 
   themPhongHocForm: FormGroup;
-  MaPhongHoc:string;
-  TenPhongHoc:string;
-  MoTa:string;
-  IdtinhTrang:number;
+    MaPhongHoc:string;
+    TenPhongHoc:string;
+    MoTa:string;
+    IdtinhTrang:number;
   val:any;
 
   constructor(
