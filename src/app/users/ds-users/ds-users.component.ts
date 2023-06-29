@@ -14,16 +14,6 @@ import * as signalR from '@microsoft/signalr';
 
 export class DsUsersComponent implements OnInit {
 
-  showModal = false;
-
-  openModal() {
-    this.showModal = true;
-  }
-
-  closeModal() {
-    this.showModal = false;
-  }
-
   constructor(private service: SharedService, private http: HttpClient) { }
   loaiUser: any;
   DsLopHoc: any = [];
@@ -71,6 +61,17 @@ export class DsUsersComponent implements OnInit {
       this.reloadDSUser();
     }
     this.loadLopHoc();
+
+    // button esc [id="closeModalBtn"]
+    // document.addEventListener('keydown', (event) => {
+    //   const modal = document.getElementById('closeModalBtn') as HTMLElement;
+    //   const closeModalBtn = document.getElementById('closeModalBtn') as HTMLButtonElement;
+    //   if (event.key === 'Escape' && document.activeElement !== closeModalBtn) {
+    //     closeModalBtn.click();
+    //   }
+    // });    
+    //end button esc
+
   }
   reloadDSUser() {
     this.service.dsUsers().subscribe(data => {
