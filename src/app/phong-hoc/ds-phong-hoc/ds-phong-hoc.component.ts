@@ -61,6 +61,7 @@ export class DsPhongHocComponent implements OnInit {
 
   chiTietPhong(phong:any){
    this.phongHoc=phong;
+   console.log("ds Phòng",phong);
   }
   xoaPhongHoc(id, tenPhongHoc){
     if(confirm("Xóa Phòng: "+ tenPhongHoc +"? ")){

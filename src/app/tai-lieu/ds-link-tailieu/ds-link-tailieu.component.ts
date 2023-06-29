@@ -11,9 +11,9 @@ import { Router } from '@angular/router';
 export class DsLinkTailieuComponent implements OnInit {
 
   constructor(
-    private service: SharedService,
+    private router: Router,
     private http: HttpClient,
-    private router: Router) { }
+    private service: SharedService) { }
 
   DsTaiLieu:any=[];
   taiLieu:any=[];
@@ -61,7 +61,7 @@ export class DsLinkTailieuComponent implements OnInit {
 
   chiTietTaiLieu(taiLieu:any){
     this.taiLieu = taiLieu;   
-    // console.log("???",taiLieu);
+    console.log("???",taiLieu);
   }
 
   //Xoa Tài Lieu
@@ -75,5 +75,4 @@ export class DsLinkTailieuComponent implements OnInit {
       })
     }
   }
-
 }

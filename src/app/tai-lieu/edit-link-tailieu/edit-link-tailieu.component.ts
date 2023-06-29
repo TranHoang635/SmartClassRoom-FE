@@ -12,33 +12,33 @@ import { ActivatedRoute, Route } from '@angular/router';
 export class EditLinkTailieuComponent implements OnInit {
 
     @Input('chiTietTaiLieu')
-      tailieu:any=[];
+      taiLieu:any=[];
+      DsTaiLieu:any=[];
+      DsMonHocQL:any=[];
       
-
-    DsTaiLieu:any=[];
-    DsMonHocQL:any=[];
-    val:any;
     editTaiLieu: FormGroup;
-      IdMonHoc:number;
       TenTaiLieu:string;
       UrlTaiLieu:string;
-      IdUser:number;
+        IdMonHoc:number;
+        IdUser:number;
+        IdTaiLieu:number;
+    val:any;
       
   constructor(
     private fb:FormBuilder,
     private router:ActivatedRoute,
     private service:SharedService ) { 
       this.editTaiLieu = fb.group({
-        IdMonHoc: new FormControl(),
         TenTaiLieu: new FormControl(),
         UrlTaiLieu: new FormControl(),
-        IdUser: new FormControl(), 
-        // Thiếu khai báo chỗ này
+          IdMonHoc: new FormControl(),
+          IdUser: new FormControl(),
+          IdTaiLieu: new FormControl(),
       })
      }
 
   ngOnInit(): void {
-    //this.loadTaiLieu();
+    // this.loadTaiLieu();
     this.loadMonHoc();
   }
 
@@ -60,8 +60,8 @@ export class EditLinkTailieuComponent implements OnInit {
     console.log(this.val);
     this.service.suaTaiLieu(idTaiLieu,this.val).subscribe(data=>{
       alert(data.toString());
+      console.log(data);
     })
   }
-
 }
 

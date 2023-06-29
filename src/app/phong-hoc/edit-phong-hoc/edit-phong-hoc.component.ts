@@ -18,7 +18,10 @@ export class EditPhongHocComponent implements OnInit {
     MaPhongHoc:string;
     TenPhongHoc:string;
     MoTa:string;
+    IdPhongHoc:number;
+    TenTinhTrang:string;
     IdTinhTrang: number;
+    TinhTrang:number;
     val:any;
   
   constructor(
@@ -29,7 +32,10 @@ export class EditPhongHocComponent implements OnInit {
         MaPhongHoc: new FormControl(),
         TenPhongHoc: new FormControl(),
         MoTa: new FormControl(),
+        TinhTrang: new FormControl(),
+        TenTinhTrang: new FormControl(),
         IdTinhTrang: new FormControl(),
+        IdPhongHoc: new FormControl(),
       })
      }
 
@@ -37,17 +43,18 @@ export class EditPhongHocComponent implements OnInit {
     this.loadPhong();
   }
 
+    loadPhong(){
+    this.service.dsPhongHoc().subscribe(data =>{
+      this.DsPhongHoc=data;
+    })
+  }
+  
   PutData(idPhongHoc){    
     this.val = this.editPhongHoc.value;
     console.log(this.val);
     this.service.suaPhongHoc(idPhongHoc,this.val).subscribe(data=>{
       alert(data.toString());
-    })
-  }
-
-  loadPhong(){
-    this.service.dsPhongHoc().subscribe(data =>{
-      this.DsPhongHoc=data;
+      console.log(data);
     })
   }
 }

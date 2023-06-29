@@ -6,31 +6,42 @@
         <div class="col-lg-12">
           <div class="form-group">
             <label class="form-control-label">Tên tài liệu: <span class="tx-danger">*</span></label>
-            <input class="form-control" type="text" name="TenTaiLieu" placeholder="Tên tài liệu" formControlName="TenTaiLieu" [(ngModel)]="tailieu.tenTaiLieu" >
+            <input class="form-control" type="text" name="TenTaiLieu" placeholder="Tên tài liệu" formControlName="TenTaiLieu" [(ngModel)]="taiLieu.tenTaiLieu" >
           </div>
         </div>
   
         <div class="col-lg-12">
           <div class="form-group">
             <label class="form-control-label">Url tài liệu: <span class="tx-danger">*</span></label>
-            <input class="form-control" type="text" name="Urltailieu" placeholder="Url tài liệu" formControlName="UrlTaiLieu" [(ngModel)]="tailieu.urlTaiLieu" > <!-- Thiếu rất nhiều formControlName-->
+            <input class="form-control" type="text" name="Urltailieu" placeholder="Url tài liệu" formControlName="UrlTaiLieu" [(ngModel)]="taiLieu.urlTaiLieu" >
           </div>
         </div>
   
         <div class="col-lg-12">
           <div class="form-group mg-b-10-force">
               <label class="form-control-label">Chọn Môn: </label>
-              <select class="form-control select2" formControlName="IdMonHoc" [(ngModel)]="tailieu.idMonHoc" >    
+              <select class="form-control select2" formControlName="IdMonHoc" [(ngModel)]="taiLieu.idMonHoc" >    
                   <ng-container *ngFor="let mon of DsMonHocQL;" >               
                       <option [value]="mon.idMonHoc">{{mon.tenMonHoc}}</option>
                   </ng-container>                    
               </select>
           </div>
-      
+
+          <div style="display: none;">
+            <div class="form-group">
+              <input class="form-control" type="text" name="TenTaiLieu" placeholder="Tên tài liệu" formControlName="IdUser" [(ngModel)]="taiLieu.idUser" >
+            </div>
+          </div>
+          <div style="display: none;">
+            <div class="form-group">
+              <input class="form-control" type="text" formControlName="IdTaiLieu" [(ngModel)]="taiLieu.idTaiLieu" >
+            </div>
+          </div>
+          
         </div>
       </div>
       <div class="form-layout-footer">
-        <button class="btn btn-primary bd-0" style="margin-right: 10px;" (click)="PutData(tailieu.idTaiLieu)"> Sửa tài liệu</button>
+        <button class="btn btn-primary bd-0" style="margin-right: 10px;" (click)="PutData(taiLieu.idTaiLieu)"> Sửa tài liệu</button>
         <button class="btn btn-secondary bd-0" data-dismiss="modal">Hủy bỏ</button>
       </div><!-- form-layout-footer -->
     </div><!-- form-layout -->
