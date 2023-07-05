@@ -1,3 +1,8 @@
+<div id="loading" class="loading">
+  <img class="imgld" src="../../assets/img/SMARTCLASS_loading.png" alt="LacHongUniversity">
+  <div class="loading-text">Đang tải...</div>
+</div>
+
 <!-- navbar and head -->
 <div class="slim-header with-sidebar">
   <div class="container-fluid">
@@ -80,7 +85,7 @@
             <a [routerLinkActive]="'active'" routerLink="page-profile" class="nav-link"><i class="icon ion-person"></i>Chỉnh sửa thông tin</a>
             <a [routerLinkActive]="'active'" routerLink="page-settings" class="nav-link"><i class="icon ion-ios-gear"></i>Cài đặt</a>
             <a [routerLinkActive]="'active'" routerLink="dat-lai-mat-khau" class="nav-link"><i class="icon ion-compose"></i>Đổi mật khẩu</a>
-            <a [routerLinkActive]="'active'" routerLink="/login" class="nav-link"><i class="icon ion-forward"></i>Đăng xuất</a>
+            <a [routerLinkActive]="'active'" routerLink="/login" class="nav-link"><i class="fa-solid fa-right-from-bracket" style="padding-left: 2px; padding-right: 8px; color: #1B84E7;"></i>Đăng xuất</a>
           </nav>
         </div><!-- dropdown-menu -->
       </div><!-- dropdown c -->
@@ -92,12 +97,13 @@
 <!-- sidebar -->
 <div class="slim-body">
   <div class="slim-sidebar">
+    <label class="sidebar-label"> <code style="font-weight: bold; font-size: 16px;">[User]</code> : Administrator</label>
     <ul class="nav nav-sidebar">
       <li class="sidebar-nav-item">
-        <a href="#" class="sidebar-nav-link" routerLink="dashboard" [routerLinkActive]="'active'"><i class="icon ion-home"></i>Dashboard</a>
+        <a href="#" class="sidebar-nav-link" routerLink="dashboard" [routerLinkActive]="'active'"><i class="fa-solid fa-house" style="font-size: 16px;"></i> Dashboard </a>
       </li>
       <li class="sidebar-nav-item with-sub">
-        <a href="#" class="sidebar-nav-link" routerLink="user" [routerLinkActive]="'active'"><i class="icon ion-settings"></i>Quản lý người dùng</a>
+        <a href="#" class="sidebar-nav-link" routerLink="user" [routerLinkActive]="'active'"><i class="fa-solid fa-user-gear" style="font-size: 16px;"></i>Quản lý người dùng</a>
         <ul class="nav sidebar-nav-sub">
           <li class="nav-sub-item"><a href="#" class="nav-sub-link" routerLink="giang-vien" [routerLinkActive]="'active'">Giảng viên</a></li>
           <li class="nav-sub-item"><a href="#" class="nav-sub-link" routerLink="sinh-vien" [routerLinkActive]="'active'">Học sinh</a></li>
@@ -106,22 +112,22 @@
         </ul>
       </li>
       <li class="sidebar-nav-item">
-        <a href="#" class="sidebar-nav-link" routerLink="lop-hoc" [routerLinkActive]="'active'"><i class="icon ion-easel"></i>Lớp Học</a>
+        <a href="#" class="sidebar-nav-link" routerLink="lop-hoc" [routerLinkActive]="'active'"><i class="fa-solid fa-chalkboard-user" style="font-size: 16px;"></i>Lớp Học</a>
       </li>
       <li class="sidebar-nav-item">
-        <a href="#" class="sidebar-nav-link" routerLink="mon-hoc" [routerLinkActive]="'active'"><i class="icon ion-person-stalker"></i>Môn Học</a>
+        <a href="#" class="sidebar-nav-link" routerLink="mon-hoc" [routerLinkActive]="'active'"><i class="fa-solid fa-book-open" style="font-size: 16px;"></i>Môn Học</a>
       </li>
       <!-- <li class="sidebar-nav-item">
           <a href="#" class="sidebar-nav-link" routerLink="thoi-khoa-bieu" [routerLinkActive]="'active'"><i class="icon ion-ionic"></i>Thời Khóa Biểu</a>
         </li> -->
       <li class="sidebar-nav-item">
-        <a href="#" class="sidebar-nav-link" routerLink="phong-hoc" [routerLinkActive]="'active'"><i class="icon ion-chatboxes"></i>Quản Lý Phòng Học</a>
+        <a href="#" class="sidebar-nav-link" routerLink="phong-hoc" [routerLinkActive]="'active'"><i class="fa-solid fa-users-rectangle" style="font-size: 16px;"></i>Quản Lý Phòng Học</a>
       </li>  
       <li class="sidebar-nav-item">
-        <a href="#" class="sidebar-nav-link" routerLink="quan-ly-lop" [routerLinkActive]="'active'"><i class="icon ion-chatbubbles"></i>Quản Lý Buổi Học</a>
+        <a href="#" class="sidebar-nav-link" routerLink="quan-ly-lop" [routerLinkActive]="'active'"><i class="fa-regular fa-calendar-days" style="font-size: 18px;"></i>Quản Lý Buổi Học</a>
       </li>
       <li class="sidebar-nav-item">
-        <a href="#" class="sidebar-nav-link" routerLink="tai-lieu" [routerLinkActive]="'active'" ><i class="icon ion-folder"></i>Quản lý tài liệu</a>
+        <a href="#" class="sidebar-nav-link" routerLink="tai-lieu" [routerLinkActive]="'active'" ><i class="fa-solid fa-folder-plus" style="font-size: 16px;"></i>Quản lý tài liệu</a>
       </li>
       <!-- <li class="sidebar-nav-item">
         <a href="#" class="sidebar-nav-link" routerLink="page-profile" [routerLinkActive]="'active'" ><i class="icon ion-ios-person"></i>Chỉnh sửa thông tin</a>
@@ -136,7 +142,7 @@
         <a href="#" class="sidebar-nav-link" routerLink="page-settings" [routerLinkActive]="'active'" ><i class="icon ion-gear-a"></i>Cài đặt</a>
       </li> -->
       <li class="sidebar-nav-item">
-        <a href="#" class="sidebar-nav-link" routerLink="/login" [routerLinkActive]="'active'" ><i class="icon ion-forward"></i>Đăng xuất</a>
+        <a href="#" class="sidebar-nav-link" routerLink="/login" [routerLinkActive]="'active'" ><i class="fa-solid fa-right-from-bracket" style="font-size: 16px;"></i>Đăng xuất</a>
       </li>
     </ul>
   </div>

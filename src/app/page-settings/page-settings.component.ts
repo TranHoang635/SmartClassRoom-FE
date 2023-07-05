@@ -29,13 +29,13 @@ export class PageSettingsComponent implements OnInit {
     });
 
     // Reload the page only once when the component is initialized
-    const isPageLoaded = localStorage.getItem('isPageLoaded');
-    if (!isPageLoaded) {
-      localStorage.setItem('isPageLoaded', 'true');
-      location.reload();
-    } else {
-      localStorage.removeItem('isPageLoaded');
-    }
+    // const isPageLoaded = localStorage.getItem('isPageLoaded');
+    // if (!isPageLoaded) {
+    //   localStorage.setItem('isPageLoaded', 'true');
+    //   location.reload();
+    // } else {
+    //   localStorage.removeItem('isPageLoaded');
+    // }
   }
 
 }
