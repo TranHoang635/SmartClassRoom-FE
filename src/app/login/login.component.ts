@@ -32,10 +32,10 @@ export class LoginComponent implements OnInit {
     // Reload the page only once when the component is initialized
     if (!isPageLoaded) {
       localStorage.setItem('isPageLoaded', 'true');
-      // Tăng độ trễ tải lại trang 2 giây
+      // tăng độ trễ tải lại trang 2 giây
       setTimeout(() => {
         location.reload();
-      }, 2000);
+      });
     } else {
       localStorage.removeItem('isPageLoaded');
     }
@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
       if (loadingDiv) {
         loadingDiv.style.display = 'none';
       }
-    }, 2000);
+    }, 1500);
   }
 
   onSubmit() {

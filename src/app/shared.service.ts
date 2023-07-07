@@ -31,7 +31,7 @@ export class SharedService {
     const user = localStorage.getItem('user');
     if (user) {
       const userData = JSON.parse(user);
-      return userData.userName; // Trả về tên người dùng từ thông tin đã lưu trong localStorage
+      return userData.hoTen; // Trả về tên người dùng từ thông tin đã lưu trong localStorage
     }
     return ''; // Trả về chuỗi rỗng nếu không có người dùng đã đăng nhập
   }
@@ -41,8 +41,6 @@ export class SharedService {
 
 
   
-
-
   //User
   dsUsers(): Observable<any[]> {
     return this.http.get<any>(this.APIUrl + '/Users');
