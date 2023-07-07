@@ -1,10 +1,33 @@
-
 <!-- 
 <ul *ngFor='let item of chitiet'>
     <li>Loại CB: {{item.loaiCB}} - Số Lần: {{item.soLan}} - Time: {{item.time}} - Time Tổng: {{item.tongTime}}</li>  
 </ul> -->
 
-<canvas #canvas width="720" height="30" style="border:3px solid #0900bd;">
-    </canvas>
+<canvas #canvas width="720" height="30" style=" border:2px solid #0900bd;"></canvas>
 
-    
+<h4 style="font-weight: bold; text-align: center;">Chú thích</h4>
+<div style="display: flex; justify-content: center;">
+  <div style="display: flex; align-items: center; margin-right: 10px;">
+    <div style="width: 20px; height: 20px; background-color: #FFC107; margin-right: 5px;"></div>
+    <span>Không chú ý</span>
+  </div>
+  <div style="display: flex; align-items: center; margin-right: 10px;">
+    <div style="width: 20px; height: 20px; background-color: #DC3545; margin-right: 5px;"></div>
+    <span>Không có mặt</span>
+  </div>
+  <div style="display: flex; align-items: center; margin-right: 10px;">
+    <div style="width: 20px; height: 20px; background-color: #C474F0; margin-right: 5px;"></div>
+    <span>Buồn ngủ</span>
+  </div>
+  <div style="display: flex; align-items: center; margin-right: 10px;">
+    <div style="width: 20px; height: 20px; background-color: purple; margin-right: 5px;"></div>
+    <span>Ngủ gật</span>
+  </div>
+  <div style="display: flex; align-items: center;">
+    <div style="width: 20px; height: 20px; background-color: #28A745; margin-right: 5px;"></div>
+    <span>Bình thường</span>
+  </div>
+</div>
+
+
+<!-- <canvasjs-chart [options]="chartOptions" [styles]="{width: '666px', height:'100px'}"></canvasjs-chart> -->

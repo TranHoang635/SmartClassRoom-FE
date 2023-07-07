@@ -39,11 +39,11 @@ export class DashboardComponent implements OnInit {
     const currentHour = currentDate.getHours();
 
     if (currentHour < 12) {
-      greeting.textContent = 'Chào buổi sáng, Administrator!';
+      greeting.textContent = 'Chào buổi sáng, Phạm Gia Khiêm!';
     } else if (currentHour < 18) {
-      greeting.textContent = 'Chào buổi chiều, Administrator!';
+      greeting.textContent = 'Chào buổi chiều, Phạm Gia Khiêm!';
     } else {
-      greeting.textContent = 'Chào buổi tối, Administrator!';
+      greeting.textContent = 'Chào buổi tối, Phạm Gia Khiêm!';
     }
   }
 }
