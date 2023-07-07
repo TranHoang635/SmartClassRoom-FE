@@ -1,9 +1,9 @@
 <title>Login</title>
 
-<div id="loading" class="loading">
+<!-- <div id="loading" class="loading">
     <img class="imgld" src="../../assets/img/SMARTCLASS_loading.png" alt="LacHongUniversity">
     <div class="loading-text">Đang tải...</div>
-</div>
+</div> -->
 
 <div class="app-login">
     <div class="container" id="container">
@@ -13,18 +13,17 @@
                 <div class="overlay-container">
                     <div class="overlay">
                         <div class="overlay-panel overlay-right">
+                            <div *ngIf="showAlert" class="alert"
+                                [ngClass]="{'alert-success': loginSuccess, 'alert-danger': !loginSuccess}">
+                                {{ loginMessage }}
+                            </div>
                             <h1>ĐĂNG NHẬP</h1>
                             <input formControlName="username" type="email" placeholder="Email" />
                             <input formControlName="password" type="password" placeholder="Mật khẩu" />
                             <div class="forgot-password">
                                 <a class="quenmk" routerLink="/forgot">Quên mật khẩu?</a>
                             </div>
-                            <button class="btn-login" type="submit" routerLink="/home/dashboard">Đăng nhập</button>
-                            <div *ngIf="loginForm.errors">
-                                <div class="alert alert-danger">
-                                    {{ loginForm.errors | json }}
-                                </div>
-                            </div>
+                            <button class="btn-login" type="submit">Đăng nhập</button>
                         </div>
                     </div>
                 </div>

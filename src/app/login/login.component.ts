@@ -1,5 +1,7 @@
+// login.component.ts
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { SharedService } from '../shared.service';
 
 @Component({
@@ -8,15 +10,21 @@ import { SharedService } from '../shared.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  loginForm = this.formBuilder.group({
-    username: [''],
-    password: ['']
-  });
+  loginForm: FormGroup;
+  loginSuccess: boolean = false;
+  loginMessage: string = '';
+  showAlert: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
-    private authService: SharedService
-  ) { }
+    private authService: SharedService,
+    private router: Router
+  ) {
+    this.loginForm = this.formBuilder.group({
+      username: [''],
+      password: ['']
+    });
+  }
 
   ngOnInit(): void {
     // Check if the page has been loaded before
@@ -24,10 +32,10 @@ export class LoginComponent implements OnInit {
     // Reload the page only once when the component is initialized
     if (!isPageLoaded) {
       localStorage.setItem('isPageLoaded', 'true');
-      // tăng độ trễ tải lại trang 2 giây
+      // Tăng độ trễ tải lại trang 2 giây
       setTimeout(() => {
         location.reload();
-      });
+      }, 2000);
     } else {
       localStorage.removeItem('isPageLoaded');
     }
@@ -37,25 +45,36 @@ export class LoginComponent implements OnInit {
       if (loadingDiv) {
         loadingDiv.style.display = 'none';
       }
-    }, 1500);
+    }, 2000);
   }
-
-
 
   onSubmit() {
     const username = this.loginForm.get('username').value;
     const password = this.loginForm.get('password').value;
-
-    console.log("username: ", username);
-    console.log("password: ", password);
-
+  
     this.authService.login(username, password).subscribe(
       response => {
+        this.loginSuccess = true;
+        this.loginMessage = 'Đăng nhập thành công';
+        this.showAlert = true;
         console.log("login success: ", response);
+        setTimeout(() => {
+          this.loginSuccess = false;
+          this.loginMessage = '';
+          this.showAlert = false;
+        }, 2000);
       },
       error => {
+        this.loginSuccess = false;
+        this.loginMessage = 'Sai tài khoản hoặc mật khẩu';
+        this.showAlert = true;
         console.log("login error: ", error);
+        setTimeout(() => {
+          this.loginSuccess = false;
+          this.loginMessage = '';
+          this.showAlert = false;
+        }, 2000);
       }
     );
-  }
+  }  
 }

@@ -1,6 +1,6 @@
 <div id="loading" class="loading">
   <img class="imgld" src="../../assets/img/SMARTCLASS_loading.png" alt="LacHongUniversity">
-  <div class="loading-text">Đang đăng nhập...</div>
+  <div class="loading-text">Đang tải vui lòng chờ...</div>
 </div>
 
 <!-- navbar and head -->
@@ -77,7 +77,7 @@
       <div class="dropdown dropdown-c">
         <a href="#" class="logged-user" data-toggle="dropdown">
           <img src="../assets/img/sv2.png" alt="">
-          <span>Phạm Gia Khiêm</span>
+          <span>{{ NAMEUser }}</span>
           <i class="fa fa-angle-down"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-right">
@@ -97,7 +97,10 @@
 <!-- sidebar -->
 <div class="slim-body">
   <div class="slim-sidebar">
-    <label class="sidebar-label"> <code style="font-weight: bold; font-size: 16px;">[User]</code> : Administrator</label>
+    <!-- đoạn này hiển thị tên người dùng đã đăng nhập -->
+    <label class="sidebar-label">
+      <code style="font-weight: bold; font-size: 16px;">[User]</code> : {{ NAMEUser }}
+    </label>    
     <ul class="nav nav-sidebar">
       <li class="sidebar-nav-item">
         <a href="#" class="sidebar-nav-link" routerLink="dashboard" [routerLinkActive]="'active'"><i class="fa-solid fa-house" style="font-size: 16px;"></i> Dashboard </a>
