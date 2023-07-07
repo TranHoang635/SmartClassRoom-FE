@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   loginSuccess: boolean = false;
   loginMessage: string = '';
   showAlert: boolean = false;
+  rememberAccount: boolean = false; // Biến lưu trạng thái nhớ tài khoản
 
   constructor(
     private formBuilder: FormBuilder,
@@ -22,7 +23,8 @@ export class LoginComponent implements OnInit {
   ) {
     this.loginForm = this.formBuilder.group({
       username: [''],
-      password: ['']
+      password: [''],
+      remember: ['']
     });
   }
 
@@ -48,6 +50,11 @@ export class LoginComponent implements OnInit {
     }, 1500);
   }
 
+  onRememberAccountChange() {
+    // Cập nhật giá trị biến rememberAccount
+    this.rememberAccount = !this.rememberAccount;
+  }
+
   onSubmit() {
     const username = this.loginForm.get('username').value;
     const password = this.loginForm.get('password').value;
@@ -55,26 +62,37 @@ export class LoginComponent implements OnInit {
     this.authService.login(username, password).subscribe(
       response => {
         this.loginSuccess = true;
-        this.loginMessage = 'Đăng nhập thành công';
+        this.loginMessage = 'Đăng nhập thành công ✅';
         this.showAlert = true;
         console.log("login success: ", response);
         setTimeout(() => {
           this.loginSuccess = false;
           this.loginMessage = '';
           this.showAlert = false;
-        }, 2000);
+        }, 1500);
+  
+        if (this.rememberAccount) {
+          // Lưu thông tin tài khoản vào localStorage
+          localStorage.setItem('username', username);
+          localStorage.setItem('password', password);
+        } else {
+          // Xóa thông tin tài khoản từ localStorage
+          localStorage.removeItem('username');
+          localStorage.removeItem('password');
+        }
       },
       error => {
         this.loginSuccess = false;
-        this.loginMessage = 'Sai tài khoản hoặc mật khẩu';
+        this.loginMessage = 'Sai tài khoản hoặc mật khẩu ❌';
         this.showAlert = true;
         console.log("login error: ", error);
         setTimeout(() => {
           this.loginSuccess = false;
           this.loginMessage = '';
           this.showAlert = false;
-        }, 2000);
+        }, 1500);
       }
     );
-  }  
+  }
+   
 }
