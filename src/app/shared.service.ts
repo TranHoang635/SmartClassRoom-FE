@@ -22,7 +22,9 @@ export class SharedService {
       tap(response => {
         if (response) {
           localStorage.setItem('user', JSON.stringify(response)); // Lưu thông tin user vào local storage
-          this.router.navigateByUrl("/home/dashboard"); // Chuyển hướng đến trang dashboard sau khi đăng nhập thành công
+          setTimeout(() => {
+            this.router.navigateByUrl("/home/dashboard");
+          }, 2000);
         }
       })
     );
@@ -35,6 +37,7 @@ export class SharedService {
     }
     return ''; // Trả về chuỗi rỗng nếu không có người dùng đã đăng nhập
   }
+
   logout(): void {
     localStorage.removeItem('user'); // Xóa thông tin user khỏi local storage khi đăng xuất
   }

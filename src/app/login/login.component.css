@@ -125,7 +125,7 @@ input {
 .overlay-panel {
   position: absolute;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
   flex-direction: column;
   padding: 0 230px;
@@ -171,23 +171,67 @@ input {
   font-weight: bold;
 }
 
+/* Checkbox nhớ tài khoản */
+.form-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  margin: -8px 8px;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+}
+
+.remember-label {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  white-space: nowrap; /* Ngăn chữ "nhớ tài khoản" xuống dòng */
+}
+
+.forgot-password {
+  margin-left: auto;
+}
+
+
+
+
+
 
 /* Thông báo */
 .alert {
+  position: absolute;
+  top: 40px;
+  transform: translateX(-50%);
+  z-index: 1;
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 4px;
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
 }
 
 .alert-success {
+  right: 285px;
   background-color: #d4edda;
   border-color: #c3e6cb;
   color: #155724;
 }
 
 .alert-danger {
+  right: 260px;
   background-color: #f8d7da;
   border-color: #f5c6cb;
   color: #721c24;
 }
+
+.show-alert {
+  opacity: 20;
+  transform: translateY(0%);
+}
+
 
