@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { SharedService } from 'src/app/shared.service';
 
 @Component({
   selector: 'app-page-activity',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageActivityComponent implements OnInit {
 
-  constructor() { }
+  constructor(    
+    private router: Router,
+    private service: SharedService) { }
 
   ngOnInit(): void {
+  }
+  get NAMEUser(): string {
+    return this.service.getLoggedInUser();
   }
 
 }

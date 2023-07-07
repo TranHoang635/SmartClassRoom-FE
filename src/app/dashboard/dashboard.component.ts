@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Chart, registerables } from 'chart.js';
+import { Router } from '@angular/router';
+import { SharedService } from 'src/app/shared.service';
 Chart.register(...registerables);
 
 @Component({
@@ -13,7 +15,10 @@ export class DashboardComponent implements OnInit {
   chart: any;
   chartOptions: any;
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private router: Router,
+    private service: SharedService,
+    private http: HttpClient) { }
 
   ngOnInit(): void {
     // Get the HTML element that displays the date
@@ -39,11 +44,14 @@ export class DashboardComponent implements OnInit {
     const currentHour = currentDate.getHours();
 
     if (currentHour < 12) {
-      greeting.textContent = 'Chào buổi sáng, Phạm Gia Khiêm!';
+      greeting.textContent = 'Chào buổi sáng, ' + this.NAMEUser + '!';
     } else if (currentHour < 18) {
-      greeting.textContent = 'Chào buổi chiều, Phạm Gia Khiêm!';
+      greeting.textContent = 'Chào buổi chiều, ' + this.NAMEUser + '!';
     } else {
-      greeting.textContent = 'Chào buổi tối, Phạm Gia Khiêm!';
+      greeting.textContent = 'Chào buổi tối, ' + this.NAMEUser + '!';
     }
+  }
+  get NAMEUser(): string {
+    return this.service.getLoggedInUser();
   }
 }
